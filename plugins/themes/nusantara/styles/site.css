@@ -259,23 +259,24 @@
 .nusantara-journalModal__media {
   position: relative;
   flex: 0 0 42%;
-  background: linear-gradient(135deg, rgba(11, 114, 133, 0.45), rgba(8, 31, 48, 0.8));
+  background: linear-gradient(135deg, rgba(11, 114, 133, 0.08), rgba(8, 31, 48, 0.16));
   min-height: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.2rem, 2.5vw, 2rem);
 }
 
 .nusantara-journalModal__media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
 .nusantara-journalModal__media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(8, 31, 48, 0.05), rgba(8, 31, 48, 0.82));
+  display: none;
 }
 
 .nusantara-journalModal__placeholder {
