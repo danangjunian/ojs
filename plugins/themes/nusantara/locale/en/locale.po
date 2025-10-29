@@ -1,0 +1,66 @@
+﻿msgid ""
+msgstr ""
+"Project-Id-Version: Nusantara Theme\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.themes.nusantara.searchPlaceholder"
+msgstr "Search articles, journals, or authors"
+
+msgid "plugins.themes.nusantara.metrics.readers"
+msgstr "Global readership"
+
+msgid "plugins.themes.nusantara.site.journalShowcase"
+msgstr "Discover Our Journals"
+
+msgid "plugins.themes.nusantara.site.journalShowcaseDescription"
+msgstr "Explore highlighted journals with refreshed covers, curated issues, and engaging scholarly communities."
+
+msgid "plugins.themes.nusantara.footer.callForPapers"
+msgstr "Submit your manuscript"
+
+msgid "plugins.themes.nusantara.footer.rights"
+msgstr "All rights reserved"
+
+msgid "plugins.themes.nusantara.hero.fastReview"
+msgstr "Fast-track review workflow"
+
+msgid "plugins.themes.nusantara.hero.joinCommunity"
+msgstr "Join our editorial community"
+
+msgid "plugins.themes.nusantara.hero.siteLabel"
+msgstr "Journal Portal"
+
+msgid "plugins.themes.nusantara.site.aboutTitle"
+msgstr "About this journal portal"
+
+msgid "plugins.themes.nusantara.announcements.viewAll"
+msgstr "View all announcements"
+
+msgid "plugins.themes.nusantara.accountMenu.title"
+msgstr "Account"
+msgid "common.navigation"
+msgstr "Navigation"
+msgid "plugins.themes.nusantara.footer.location"
+msgstr "Location"
+
+msgid "plugins.themes.nusantara.footer.locationPlaceholder"
+msgstr "Embed a map of your campus or office here."
+
+msgid "plugins.themes.nusantara.footer.locationInstructions"
+msgstr "Paste the iframe in Appearance → Theme → Location map."
+
+msgid "plugins.themes.nusantara.option.footerMapEmbed.label"
+msgstr "Location map embed"
+
+msgid "plugins.themes.nusantara.option.footerMapEmbed.description"
+msgstr "Paste the iframe (Google Maps, OpenStreetMap, etc.) to display it in the footer."
+msgid "plugins.themes.nusantara.footer.contact"
+msgstr "Contact"
+msgid "plugins.themes.nusantara.accountMenu.title"
+msgstr "Account"
+
+msgid "plugins.themes.nusantara.footer.contact"
+msgstr "Contact"
+

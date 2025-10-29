@@ -1,0 +1,134 @@
+﻿/* Khusus beranda jurnal */
+.nusantara-hero--journal {
+  background: rgba(8, 91, 104, 0.7);
+  color: #fff;
+}
+
+.nusantara-hero--journal.has-image {
+  background: rgba(8, 91, 104, 0.85);
+}
+
+.nusantara-hero--journal.has-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-image);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+}
+
+.nusantara-hero--journal .nusantara-hero__content,
+.nusantara-hero--journal .nusantara-hero__aside {
+  position: relative;
+  z-index: 1;
+}
+
+.nusantara-hero--journal .nusantara-hero__eyebrow {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.nusantara-hero--journal .nusantara-hero__title {
+  color: #fff;
+}
+
+.nusantara-hero--journal .nusantara-hero__subtitle {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.nusantara-hero--journal .nusantara-button--filled {
+  background: #fff;
+  color: var(--nusantara-accent);
+}
+
+.nusantara-hero--journal .nusantara-hero__aside {
+  background: rgba(8, 91, 104, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.nusantara-hero__stats {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nusantara-hero__stats li {
+  border-radius: var(--nusantara-radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: rgba(8, 91, 104, 0.25);
+}
+
+.nusantara-hero__stats span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.nusantara-hero__stats strong {
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.nusantara-announcements__list {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.nusantara-announcementCard {
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: var(--nusantara-radius);
+  border: 1px solid rgba(11, 114, 133, 0.1);
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px -45px rgba(12, 32, 56, 0.35);
+}
+
+.nusantara-announcementCard h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  font-family: var(--nusantara-font-serif);
+}
+
+.nusantara-announcementCard time {
+  font-size: 0.82rem;
+  color: var(--nusantara-text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.nusantara-announcementCard p {
+  margin: 0.85rem 0 0;
+  color: var(--nusantara-text-soft);
+}
+
+.nusantara-currentIssue__grid .obj_issue_toc {
+  border: none;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: var(--nusantara-radius);
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px -45px rgba(12, 32, 56, 0.35);
+}
+
+.obj_issue_toc .galleys_links a {
+  border-radius: 999px;
+  border: 1px solid rgba(11, 114, 133, 0.2);
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.nusantara-extraContent .nusantara-section__body {
+  background: #fff;
+  border-radius: var(--nusantara-radius);
+  border: 1px solid rgba(11, 114, 133, 0.08);
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+}

@@ -1,0 +1,66 @@
+﻿msgid ""
+msgstr ""
+"Project-Id-Version: Nusantara Theme\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.themes.nusantara.searchPlaceholder"
+msgstr "Cari artikel, jurnal, atau penulis"
+
+msgid "plugins.themes.nusantara.metrics.readers"
+msgstr "Pembaca global"
+
+msgid "plugins.themes.nusantara.site.journalShowcase"
+msgstr "Jelajahi Jurnal Kami"
+
+msgid "plugins.themes.nusantara.site.journalShowcaseDescription"
+msgstr "Temukan jurnal pilihan dengan tampilan baru, edisi kurasi, dan komunitas ilmiah yang aktif."
+
+msgid "plugins.themes.nusantara.footer.callForPapers"
+msgstr "Kirim manuskrip Anda"
+
+msgid "plugins.themes.nusantara.footer.rights"
+msgstr "Hak cipta dilindungi"
+
+msgid "plugins.themes.nusantara.hero.fastReview"
+msgstr "Proses telaah cepat"
+
+msgid "plugins.themes.nusantara.hero.joinCommunity"
+msgstr "Bergabung dengan komunitas editorial kami"
+
+msgid "plugins.themes.nusantara.hero.siteLabel"
+msgstr "Portal Jurnal"
+
+msgid "plugins.themes.nusantara.site.aboutTitle"
+msgstr "Tentang portal jurnal ini"
+
+msgid "plugins.themes.nusantara.announcements.viewAll"
+msgstr "Lihat semua pengumuman"
+
+msgid "plugins.themes.nusantara.accountMenu.title"
+msgstr "Akun"
+msgid "common.navigation"
+msgstr "Navigasi"
+msgid "plugins.themes.nusantara.footer.location"
+msgstr "Lokasi"
+
+msgid "plugins.themes.nusantara.footer.locationPlaceholder"
+msgstr "Sematkan peta kampus atau kantor Anda di sini."
+
+msgid "plugins.themes.nusantara.footer.locationInstructions"
+msgstr "Tempel iframe di Tampilan → Tema → Peta lokasi."
+
+msgid "plugins.themes.nusantara.option.footerMapEmbed.label"
+msgstr "Embed peta lokasi"
+
+msgid "plugins.themes.nusantara.option.footerMapEmbed.description"
+msgstr "Tempel kode iframe (Google Maps, OpenStreetMap, dll.) untuk ditampilkan di footer."
+msgid "plugins.themes.nusantara.footer.contact"
+msgstr "Kontak"
+msgid "plugins.themes.nusantara.accountMenu.title"
+msgstr "Akun"
+
+msgid "plugins.themes.nusantara.footer.contact"
+msgstr "Kontak"
+

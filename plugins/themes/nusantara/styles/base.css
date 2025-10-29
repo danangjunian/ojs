@@ -1,0 +1,1118 @@
+﻿:root {
+  --nusantara-accent: #0b7285;
+  --nusantara-accent-dark: #085b68;
+  --nusantara-text: #1f2933;
+  --nusantara-text-soft: rgba(31, 41, 51, 0.65);
+  --nusantara-border: rgba(15, 23, 42, 0.12);
+  --nusantara-bg: #f6f9fc;
+  --nusantara-surface: #ffffff;
+  --nusantara-radius-lg: 24px;
+  --nusantara-radius: 14px;
+  --nusantara-radius-sm: 8px;
+  --nusantara-shadow-sm: 0 6px 20px -14px rgba(15, 23, 42, 0.6);
+  --nusantara-shadow: 0 22px 60px -32px rgba(14, 30, 37, 0.5);
+  --nusantara-transition: all 0.25s ease;
+  --nusantara-font-sans: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --nusantara-font-serif: "Merriweather", "Georgia", serif;
+}
+
+.nusantara-body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--nusantara-font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--nusantara-text);
+  background: var(--nusantara-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.nusantara-body a {
+  color: var(--nusantara-accent);
+  text-decoration: none;
+  transition: var(--nusantara-transition);
+}
+
+.nusantara-body a:hover,
+.nusantara-body a:focus {
+  color: var(--nusantara-accent-dark);
+  text-decoration: none;
+}
+
+.cmp_skip_to_content {
+  position: absolute;
+  top: -999px;
+  left: -999px;
+  z-index: 1000;
+}
+
+.cmp_skip_to_content a {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background: var(--nusantara-accent);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cmp_skip_to_content:focus-within {
+  top: 12px;
+  left: 12px;
+}
+
+.cmp_skip_to_content:focus-within a {
+  color: #fff;
+}
+
+.pkp_structure_page.nusantara-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f3f6fb 0%, #ffffff 45%, #f3f7fb 100%);
+  overflow-x: hidden;
+}
+
+.pkp_structure_page.nusantara-shell::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.25);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 150;
+}
+
+.pkp_structure_page.nusantara-shell.nav-open::after {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pkp_structure_page.nusantara-shell.nav-open {
+  overflow: hidden;
+}
+
+.nusantara-header {
+  position: sticky;
+  top: 0;
+  z-index: 400;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--nusantara-border);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.nusantara-header--hidden {
+  transform: translateY(-120%);
+}
+
+.nusantara-header--revealed {
+  box-shadow: 0 12px 30px -24px rgba(15, 23, 42, 0.45);
+}
+
+.nusantara-header--menu {
+  box-shadow: 0 30px 80px -48px rgba(12, 32, 56, 0.6);
+}
+
+.nusantara-header__primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.1rem clamp(1rem, 3vw, 2.75rem);
+}
+
+.nusantara-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nusantara-header__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: var(--nusantara-surface);
+  cursor: pointer;
+  transition: var(--nusantara-transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 32px -24px rgba(14, 49, 76, 0.55);
+}
+
+.nusantara-header__toggle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(11, 114, 133, 0.12), rgba(11, 114, 133, 0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nusantara-header__toggle:hover::after,
+.nusantara-header__toggle:focus::after,
+.nusantara-header__toggle.is-active::after {
+  opacity: 1;
+}
+
+.nusantara-header__toggleIcon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.38rem;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.nusantara-header__toggleIcon span {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: var(--nusantara-text);
+  border-radius: 999px;
+  transition: transform 0.32s ease, opacity 0.22s ease;
+}
+
+.nusantara-header__toggle.is-active .nusantara-header__toggleIcon span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nusantara-header__toggle.is-active .nusantara-header__toggleIcon span:nth-child(2) {
+  opacity: 0;
+}
+
+.nusantara-header__toggle.is-active .nusantara-header__toggleIcon span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.nusantara-header__toggleLabel {
+  font-size: 0;
+}
+
+.nusantara-header__logo img {
+  max-height: 46px;
+  width: auto;
+  display: block;
+}
+
+.nusantara-header__title {
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.01em;
+  color: var(--nusantara-text);
+}
+
+.nusantara-header__context {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(11, 114, 133, 0.08);
+  color: var(--nusantara-accent);
+  font-weight: 600;
+}
+
+.nusantara-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nusantara-header__searchToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--nusantara-border);
+  border-radius: 999px;
+  padding: 0.5rem 1.15rem;
+  background: transparent;
+  color: var(--nusantara-text);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--nusantara-transition);
+}
+
+.nusantara-header__searchToggle:hover,
+.nusantara-header__searchToggle:focus {
+  border-color: var(--nusantara-accent);
+  color: var(--nusantara-accent);
+}
+
+.nusantara-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.nusantara-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.nusantara-header__user ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nusantara-header__user a {
+  font-size: 0.92rem;
+  color: var(--nusantara-text);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--nusantara-radius-sm);
+  border: 1px solid transparent;
+}
+
+.nusantara-header__user a:hover,
+.nusantara-header__user a:focus {
+  border-color: var(--nusantara-border);
+  color: var(--nusantara-accent);
+}
+
+.nusantara-primaryNav {
+  position: absolute;
+  top: calc(100% + 18px);
+  right: clamp(1rem, 3vw, 2.75rem);
+  width: min(24rem, calc(100vw - 2rem));
+  padding: 1.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 42px 90px -48px rgba(9, 22, 39, 0.55);
+  backdrop-filter: blur(16px);
+  z-index: 420;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px) scale(0.92);
+  transform-origin: top right;
+  transition: transform 0.36s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.28s ease, visibility 0s linear 0.36s;
+}
+
+.nusantara-primaryNav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at top, rgba(11, 114, 133, 0.18), rgba(11, 114, 133, 0) 65%);
+  opacity: 0.75;
+}
+
+.nusantara-primaryNav.is-open {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition: transform 0.36s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.28s ease, visibility 0s linear 0s;
+}
+
+.nusantara-accountMenu {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: transform 0.32s ease, opacity 0.28s ease;
+}
+
+.nusantara-accountMenu__label {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--nusantara-text-soft);
+  font-weight: 700;
+}
+
+.nusantara-accountMenu .nusantara-userNav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.nusantara-accountMenu .nusantara-userNav__item {
+  list-style: none;
+  background: linear-gradient(160deg, rgba(11, 114, 133, 0.1) 0%, rgba(11, 114, 133, 0.02) 100%);
+  border-radius: var(--nusantara-radius);
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(11, 114, 133, 0.12);
+  box-shadow: 0 18px 32px -24px rgba(10, 36, 58, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nusantara-accountMenu .nusantara-userNav__item:hover,
+.nusantara-accountMenu .nusantara-userNav__item:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 48px -30px rgba(11, 50, 76, 0.52);
+}
+
+.nusantara-accountMenu .nusantara-userNav__item > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  font-weight: 600;
+  color: var(--nusantara-accent);
+  text-decoration: none;
+  font-size: 0.98rem;
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--nusantara-radius-sm);
+}
+
+.nusantara-accountMenu .nusantara-userNav__item > a::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--nusantara-accent);
+  box-shadow: 0 0 0 4px rgba(11, 114, 133, 0.2);
+  flex-shrink: 0;
+  margin-right: 0.4rem;
+}
+
+.nusantara-accountMenu .nusantara-userNav__item > a:hover,
+.nusantara-accountMenu .nusantara-userNav__item > a:focus {
+  background: rgba(11, 114, 133, 0.12);
+}
+
+.nusantara-accountMenu .nusantara-userNav__item ul {
+  margin: 0.55rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nusantara-accountMenu .nusantara-userNav__item ul li {
+  list-style: none;
+}
+
+.nusantara-accountMenu .nusantara-userNav__item ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--nusantara-radius-sm);
+  color: var(--nusantara-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--nusantara-transition);
+  position: relative;
+}
+
+.nusantara-accountMenu .nusantara-userNav__item ul li a::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(11, 114, 133, 0.35);
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.nusantara-accountMenu .nusantara-userNav__item ul li a:hover,
+.nusantara-accountMenu .nusantara-userNav__item ul li a:focus {
+  background: rgba(11, 114, 133, 0.14);
+  color: var(--nusantara-accent);
+}
+
+.nusantara-accountMenu .nusantara-userNav__item ul li a span {
+  font-size: 0.82rem;
+  color: var(--nusantara-text-soft);
+}
+
+.nusantara-primaryNav.is-open .nusantara-searchPanel {
+  display: block;
+}
+
+.nusantara-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nusantara-nav__item {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: transform 0.32s ease, opacity 0.28s ease;
+}
+
+.nusantara-nav__item > a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--nusantara-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0.95rem;
+  border-radius: 12px;
+  transition: var(--nusantara-transition);
+}
+
+.nusantara-nav__item > a::after {
+  content: "�";
+  font-size: 0.9rem;
+  color: rgba(15, 23, 42, 0.35);
+  transition: var(--nusantara-transition);
+}
+
+.nusantara-nav__item > a:hover,
+.nusantara-nav__item > a:focus {
+  background: rgba(11, 114, 133, 0.09);
+  color: var(--nusantara-accent);
+}
+
+.nusantara-nav__item > a:hover::after,
+.nusantara-nav__item > a:focus::after {
+  color: var(--nusantara-accent);
+}
+
+.nusantara-primaryNav.is-open .nusantara-nav__item,
+.nusantara-primaryNav.is-open .nusantara-accountMenu {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nusantara-primaryNav.is-open .nusantara-nav__item:nth-child(1) {
+  transition-delay: 0.08s;
+}
+
+.nusantara-primaryNav.is-open .nusantara-nav__item:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.nusantara-primaryNav.is-open .nusantara-nav__item:nth-child(3) {
+  transition-delay: 0.12s;
+}
+
+.nusantara-primaryNav.is-open .nusantara-nav__item:nth-child(4) {
+  transition-delay: 0.14s;
+}
+
+.nusantara-primaryNav.is-open .nusantara-nav__item:nth-child(5) {
+  transition-delay: 0.16s;
+}
+
+.nusantara-primaryNav.is-open .nusantara-accountMenu {
+  transition-delay: 0.2s;
+}
+
+.nusantara-searchPanel {
+  display: none;
+  background: var(--nusantara-surface);
+  border-radius: var(--nusantara-radius);
+  border: 1px solid var(--nusantara-border);
+  box-shadow: var(--nusantara-shadow-sm);
+  padding: 1rem 1rem 1.1rem;
+  max-width: 28rem;
+}
+
+.nusantara-searchPanel__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.nusantara-searchPanel__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--nusantara-text-soft);
+}
+
+.nusantara-searchPanel__input {
+  padding: 0.75rem 1rem;
+  border-radius: var(--nusantara-radius-sm);
+  border: 1px solid var(--nusantara-border);
+  font-size: 0.95rem;
+  transition: var(--nusantara-transition);
+}
+
+.nusantara-searchPanel__input:focus {
+  border-color: var(--nusantara-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(11, 114, 133, 0.15);
+}
+
+.nusantara-searchPanel__submit {
+  align-self: flex-end;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: var(--nusantara-accent);
+  color: #fff;
+  cursor: pointer;
+  transition: var(--nusantara-transition);
+}
+
+.nusantara-searchPanel__submit:hover,
+.nusantara-searchPanel__submit:focus {
+  background: var(--nusantara-accent-dark);
+}
+
+.nusantara-content {
+  flex: 1 0 auto;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 4vw, 3.5rem) clamp(3rem, 6vw, 4rem);
+}
+
+.nusantara-main {
+  width: 100%;
+}
+
+.nusantara-page {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3.75rem);
+}
+
+.nusantara-hero {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2.5rem;
+  padding: clamp(2.8rem, 5vw, 4rem);
+  border-radius: var(--nusantara-radius-lg);
+  background: radial-gradient(120% 120% at 0% 0%, rgba(11, 114, 133, 0.16) 0%, rgba(255, 255, 255, 0.98) 68%);
+  box-shadow: var(--nusantara-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.nusantara-hero__content {
+  grid-column: span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.nusantara-hero__eyebrow {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(8, 91, 104, 0.75);
+}
+
+.nusantara-hero__title {
+  font-size: clamp(2.3rem, 4vw, 3.3rem);
+  line-height: 1.1;
+  font-family: var(--nusantara-font-serif);
+  margin: 0;
+}
+
+.nusantara-hero__subtitle {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--nusantara-text-soft);
+  max-width: 42ch;
+}
+
+.nusantara-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nusantara-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--nusantara-transition);
+}
+
+.nusantara-button--filled {
+  background: var(--nusantara-accent);
+  color: #fff;
+  box-shadow: 0 14px 26px -18px rgba(11, 114, 133, 0.9);
+}
+
+.nusantara-button--filled:hover,
+.nusantara-button--filled:focus {
+  background: var(--nusantara-accent-dark);
+  color: #fff;
+}
+
+.nusantara-button--ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.nusantara-button--ghost:hover,
+.nusantara-button--ghost:focus {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nusantara-button--icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  background: var(--nusantara-accent);
+}
+
+.nusantara-hero__aside {
+  grid-column: span 5;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--nusantara-radius);
+  padding: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--nusantara-shadow-sm);
+}
+
+.nusantara-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.45rem;
+}
+
+.nusantara-section--shaded {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: var(--nusantara-radius-lg);
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(11, 114, 133, 0.08);
+  box-shadow: 0 42px 80px -60px rgba(10, 37, 64, 0.35);
+}
+
+.nusantara-section__header h2 {
+  margin: 0;
+  font-size: 1.7rem;
+  font-family: var(--nusantara-font-serif);
+}
+
+.nusantara-section__header p {
+  margin: 0.5rem 0 0;
+  max-width: 46ch;
+  color: var(--nusantara-text-soft);
+}
+
+.nusantara-about .nusantara-section__body {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--nusantara-radius);
+  border: 1px solid rgba(11, 114, 133, 0.1);
+  padding: clamp(1.4rem, 3vw, 1.9rem);
+  box-shadow: 0 32px 70px -55px rgba(12, 32, 56, 0.4);
+}
+
+.cmp_announcements {
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: var(--nusantara-radius);
+  padding: clamp(1.5rem, 3vw, 2.2rem);
+  border: 1px solid rgba(11, 114, 133, 0.08);
+  box-shadow: var(--nusantara-shadow-sm);
+}
+
+.cmp_announcements h2 {
+  font-family: var(--nusantara-font-serif);
+  font-size: 1.7rem;
+}
+
+.cmp_announcements .obj_announcement_summary {
+  border: 1px solid rgba(11, 114, 133, 0.08);
+  border-radius: var(--nusantara-radius-sm);
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 14px 40px -32px rgba(30, 41, 59, 0.45);
+}
+
+.nusantara-highlights .highlights {
+  position: relative;
+}
+
+.nusantara-link {
+  font-weight: 600;
+  color: var(--nusantara-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nusantara-footer {
+  margin-top: auto;
+  padding: clamp(2.5rem, 4vw, 3.5rem) clamp(1rem, 4vw, 3.5rem);
+  background: radial-gradient(140% 140% at 14% 10%, rgba(11, 114, 133, 0.18) 0%, rgba(5, 16, 45, 0.9) 72%);
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.nusantara-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.nusantara-footer__brand h2 {
+  margin: 0;
+  font-family: var(--nusantara-font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #fff;
+}
+
+.nusantara-footer__description {
+  margin-top: 0.75rem;
+  max-width: 60ch;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nusantara-footer__widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.nusantara-footer__column h3 {
+  margin: 0 0 0.8rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nusantara-footerNav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.nusantara-footerNav__item a {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.nusantara-footerNav__item a:hover,
+.nusantara-footerNav__item a:focus {
+  color: #fff;
+}
+
+.nusantara-footer__cta {
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--nusantara-radius-sm);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 600;
+}
+
+.nusantara-footer__cta svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+.nusantara-footer__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 1.5rem;
+}
+
+.nusantara-footer__brandmark img {
+  max-height: 46px;
+  filter: brightness(0) invert(1);
+}
+
+.nusantara-footer__custom {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.nusantara-footer__copyright {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nusantara-sidebar .block_makeSubmission,
+.nusantara-sidebar .pkp_block {
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: var(--nusantara-radius);
+  border: 1px solid rgba(11, 114, 133, 0.1);
+  padding: 1.2rem;
+  box-shadow: var(--nusantara-shadow-sm);
+  margin-bottom: 1.5rem;
+}
+
+.nusantara-sidebar .block_makeSubmission a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  background: var(--nusantara-accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.pkp_navigation_primary .has_submenu > a::after {
+  display: none;
+}
+
+.pkp_navigation_primary .submenu {
+  border-radius: var(--nusantara-radius-sm);
+  border: 1px solid rgba(11, 114, 133, 0.12);
+  box-shadow: 0 20px 60px -45px rgba(12, 32, 56, 0.35);
+  padding: 0.5rem 0;
+  background: #fff;
+}
+
+.pkp_navigation_primary .submenu a {
+  padding-block: 0.55rem;
+  padding-inline: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .nusantara-header__primary {
+    padding: 1rem 1.5rem;
+  }
+
+  .nusantara-primaryNav {
+    right: 1.5rem;
+    width: min(24rem, calc(100vw - 3rem));
+  }
+
+  .nusantara-hero {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(2.2rem, 5vw, 3.2rem);
+    gap: 1.5rem;
+  }
+
+  .nusantara-hero__content,
+  .nusantara-hero__aside {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .nusantara-hero__aside {
+    align-self: stretch;
+    margin: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .nusantara-header__primary {
+    padding-inline: 1.1rem;
+  }
+
+  .nusantara-header__logo img {
+    max-height: 36px;
+  }
+
+  .nusantara-header__actions {
+    gap: 0.6rem;
+  }
+
+  .nusantara-header__searchToggle {
+    border-radius: 50%;
+    padding: 0.65rem;
+  }
+
+  .nusantara-header__searchLabel {
+    display: none;
+  }
+
+  .nusantara-header__user ul {
+    gap: 0.4rem;
+  }
+
+  .nusantara-header__user a {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.82rem;
+  }
+
+  .nusantara-primaryNav {
+    left: 1.1rem;
+    right: 1.1rem;
+    width: auto;
+    transform-origin: top center;
+  }
+
+  .nusantara-nav {
+    gap: 0.35rem;
+  }
+
+  .nusantara-accountMenu .nusantara-userNav__item {
+    padding: 0.8rem 0.85rem;
+  }
+
+  .nusantara-accountMenu .nusantara-userNav__item > a {
+    font-size: 1rem;
+  }
+
+  .nusantara-hero {
+    padding: 2rem 1.35rem;
+  }
+
+  .nusantara-hero__title {
+    font-size: 2.1rem;
+  }
+
+  .nusantara-hero__subtitle {
+    font-size: 0.95rem;
+  }
+
+  .nusantara-hero__aside {
+    padding: 1.1rem;
+  }
+
+  .nusantara-footer {
+    padding-inline: 1.3rem;
+  }
+
+  .nusantara-footer__meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nusantara-primaryNav,
+  .nusantara-nav__item,
+  .nusantara-accountMenu,
+  .nusantara-header__toggle,
+  .pkp_structure_page.nusantara-shell::after {
+    transition: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1025px) {
+  .nusantara-primaryNav.is-fixed {
+    position: fixed;
+    top: var(--nusantara-nav-fixed-top, 88px);
+    right: clamp(1rem, 3vw, 2.75rem);
+    left: auto;
+    width: min(24rem, calc(100vw - 2rem));
+    max-height: var(--nusantara-nav-fixed-max-height, calc(100vh - 108px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .nusantara-primaryNav.is-fixed::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+}
+
+
+.nusantara-footer__column--map {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nusantara-footer__mapEmbed,
+.nusantara-footer__mapPlaceholder {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--nusantara-radius);
+  overflow: hidden;
+  box-shadow: 0 30px 80px -50px rgba(9, 22, 39, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+}
+
+.nusantara-footer__mapEmbed iframe {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.nusantara-footer__mapPlaceholder {
+  color: rgba(255, 255, 255, 0.75);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.nusantara-footer__mapPlaceholder p {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .nusantara-footer__widgets {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+  }
+
+  .nusantara-footer__cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nusantara-footer__mapEmbed,
+  .nusantara-footer__mapPlaceholder {
+    aspect-ratio: 4 / 3;
+  }
+}
