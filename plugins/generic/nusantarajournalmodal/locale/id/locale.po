@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nusantara Journal Modal\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.generic.nusantarajournalmodal.displayName"
+msgstr "Modal Detail Jurnal Nusantara"
+
+msgid "plugins.generic.nusantarajournalmodal.description"
+msgstr "Sediakan tampilan modal detail jurnal untuk tema Nusantara yang dapat dikonfigurasi oleh manajer jurnal."
+
+msgid "plugins.generic.nusantarajournalmodal.settings.header.journal"
+msgstr "Informasi Jurnal"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.header.indexing"
+msgstr "Indeksasi & Badge"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.header.links"
+msgstr "Tombol Aksi"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.header.additional"
+msgstr "Informasi Tambahan"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.editor"
+msgstr "Editor in Chief"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.issn"
+msgstr "ISSN (e-ISSN / p-ISSN)"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.frequency"
+msgstr "Frekuensi terbit"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.indexing"
+msgstr "Label indeksasi"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.indexing.description"
+msgstr "Satu baris per label. Contoh: SINTA, DOAJ, Scopus, Google Scholar."
+
+msgid "plugins.generic.nusantarajournalmodal.settings.doi"
+msgstr "DOI isu terkini / identitas lain"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.license"
+msgstr "Lisensi & informasi APC"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.primaryLabel"
+msgstr "Label tombol utama"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.primaryUrl"
+msgstr "URL tombol utama"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.secondaryLabel"
+msgstr "Label tombol sekunder"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.secondaryUrl"
+msgstr "URL tombol sekunder"
+
+msgid "plugins.generic.nusantarajournalmodal.validation.editor"
+msgstr "Masukkan nama editor in chief yang valid."
+
+msgid "plugins.generic.nusantarajournalmodal.validation.issn"
+msgstr "Masukkan informasi ISSN (opsional)."
+
+msgid "plugins.generic.nusantarajournalmodal.validation.primaryUrl"
+msgstr "Masukkan URL yang valid untuk tombol utama."
+
+msgid "plugins.generic.nusantarajournalmodal.validation.secondaryUrl"
+msgstr "Masukkan URL yang valid untuk tombol sekunder."
+msgid "plugins.generic.nusantarajournalmodal.settings.eyebrowLabel"
+msgstr "Judul pengantar (mis. Discover Our Journals)"

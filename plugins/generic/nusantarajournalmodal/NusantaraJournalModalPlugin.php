@@ -12,12 +12,14 @@ namespace APP\plugins\generic\nusantarajournalmodal;
 
 use APP\core\Application;
 use APP\notification\NotificationManager;
+use APP\plugins\generic\nusantarajournalmodal\classes\form\JournalModalSettingsForm;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\plugins\GenericPlugin;
 use PKP\plugins\PluginRegistry;
+use PKP\notification\Notification;
 
 class NusantaraJournalModalPlugin extends GenericPlugin
 {
@@ -66,6 +68,29 @@ class NusantaraJournalModalPlugin extends GenericPlugin
     }
 
     /**
+     * Plugin hanya dapat diaktifkan pada konteks jurnal.
+     */
+    public function getCanEnable(): bool
+    {
+        $request = Application::get()->getRequest();
+        $context = $request?->getContext();
+        if ($context) {
+            return true;
+        }
+
+        $contextId = (int) ($request?->getUserVar('contextId') ?? 0);
+        return $contextId > 0;
+    }
+
+    /**
+     * Plugin tidak tersedia di level portal.
+     */
+    public function isSitePlugin(): bool
+    {
+        return false;
+    }
+
+    /**
      * {@inheritDoc}
      *
      * Tambahkan aksi pengaturan sehingga manajer jurnal dapat mengisi data modal.
@@ -111,8 +136,7 @@ class NusantaraJournalModalPlugin extends GenericPlugin
         $verb = $request->getUserVar('verb');
         switch ($verb) {
             case 'settings':
-                $this->import('classes.form.JournalModalSettingsForm');
-                $form = new form\JournalModalSettingsForm($this, (int) $context->getId());
+                $form = new JournalModalSettingsForm($this, (int) $context->getId());
 
                 if ($request->getUserVar('save')) {
                     $form->readInputData();
@@ -120,7 +144,7 @@ class NusantaraJournalModalPlugin extends GenericPlugin
                         $form->execute();
                         $this->getNotificationManager()->createTrivialNotification(
                             $request->getUser()->getId(),
-                            NotificationManager::NOTIFICATION_TYPE_SUCCESS,
+                            Notification::NOTIFICATION_TYPE_SUCCESS,
                             ['contents' => __('common.saved')]
                         );
                         return new JSONMessage(true);
@@ -146,6 +170,7 @@ class NusantaraJournalModalPlugin extends GenericPlugin
         $settingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var \PKP\plugins\PluginSettingsDAO $settingsDao */
 
         $data = [
+            'eyebrowLabel' => $settingsDao->getSetting($contextId, $this->getName(), 'eyebrowLabel'),
             'editorInChief' => $settingsDao->getSetting($contextId, $this->getName(), 'editorInChief'),
             'issn' => $settingsDao->getSetting($contextId, $this->getName(), 'issn'),
             'frequency' => $settingsDao->getSetting($contextId, $this->getName(), 'frequency'),

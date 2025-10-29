@@ -10,6 +10,9 @@ namespace APP\plugins\themes\nusantara;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use APP\journal\Journal;
+use PKP\plugins\Hook;
+use PKP\plugins\PluginRegistry;
 use PKP\plugins\ThemePlugin;
 
 class NusantaraThemePlugin extends ThemePlugin
@@ -150,7 +153,95 @@ class NusantaraThemePlugin extends ThemePlugin
         $this->addScript('nusantara-journal-page', 'js/journal.js', [
             'priority' => TemplateManager::STYLE_SEQUENCE_LAST,
         ]);
+        $this->addScript('nusantara-journal-modal', 'js/journal-modal.js', [
+            'priority' => TemplateManager::STYLE_SEQUENCE_LAST,
+        ]);
+
+        Hook::add('TemplateManager::display', [$this, 'injectJournalModalData']);
+    }
+
+    /**
+     * Sisipkan data modal jurnal saat halaman portal dirender.
+     *
+     * @param string $hookName
+     * @param array<int,mixed> $args
+     */
+    public function injectJournalModalData(string $hookName, array $args): bool
+    {
+        /** @var TemplateManager $templateMgr */
+        $templateMgr = $args[0];
+        $template = $args[1] ?? '';
+
+        if (!is_string($template) || !str_contains($template, 'frontend/pages/indexSite.tpl')) {
+            return false;
+        }
+
+        $journals = $templateMgr->getTemplateVars('journals');
+        if (!$journals || !is_iterable($journals)) {
+            $templateMgr->assign('nusantaraJournalModalData', []);
+            return false;
+        }
+
+        $modalPlugin = $this->getJournalModalPlugin();
+        if (!$modalPlugin) {
+            $templateMgr->assign('nusantaraJournalModalData', []);
+            return false;
+        }
+
+        $modalData = [];
+        foreach ($journals as $journal) {
+            if (!$journal instanceof Journal) {
+                continue;
+            }
+
+            $contextId = $journal->getId();
+            if (!$modalPlugin->getEnabled($contextId)) {
+                continue;
+            }
+
+            $data = $modalPlugin->getModalData($contextId);
+            $data['name'] = $journal->getLocalizedName();
+            $data['acronym'] = $journal->getLocalizedAcronym();
+            $data['description'] = $journal->getLocalizedDescription();
+            $data['path'] = $journal->getPath();
+
+            $modalData[$journal->getId()] = $data;
+        }
+
+        $templateMgr->assign('nusantaraJournalModalData', $modalData);
+
+        return false;
+    }
+
+    /**
+     * Ambil instance plugin modal jika tersedia.
+     *
+     * @return \APP\plugins\generic\nusantarajournalmodal\NusantaraJournalModalPlugin|null
+     */
+    protected function getJournalModalPlugin(): ?object
+    {
+        static $cached;
+
+        if ($cached !== null) {
+            return $cached;
+        }
+
+        PluginRegistry::loadCategory('generic');
+
+        $cached = PluginRegistry::getPlugin('generic', 'NusantaraJournalModalPlugin');
+
+        if (!$cached) {
+            return null;
+        }
+
+        $className = 'APP\\plugins\\generic\\nusantarajournalmodal\\NusantaraJournalModalPlugin';
+        if (!class_exists($className)) {
+            return null;
+        }
+
+        return $cached instanceof $className ? $cached : null;
     }
 }
+
 
 

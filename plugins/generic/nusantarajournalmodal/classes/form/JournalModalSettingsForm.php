@@ -14,6 +14,8 @@ use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorPost;
 use PKP\form\validation\FormValidatorUrl;
+use PKP\form\validation\FormValidatorCSRF;
+use APP\template\TemplateManager;
 
 class JournalModalSettingsForm extends Form
 {
@@ -33,11 +35,13 @@ class JournalModalSettingsForm extends Form
         $this->addCheck(new FormValidator($this, 'issn', 'optional', 'plugins.generic.nusantarajournalmodal.validation.issn'));
         $this->addCheck(new FormValidatorUrl($this, 'primaryUrl', 'optional', 'plugins.generic.nusantarajournalmodal.validation.primaryUrl'));
         $this->addCheck(new FormValidatorUrl($this, 'secondaryUrl', 'optional', 'plugins.generic.nusantarajournalmodal.validation.secondaryUrl'));
+        $this->addCheck(new FormValidatorCSRF($this));
         $this->addCheck(new FormValidatorPost($this));
     }
 
     public function initData(): void
     {
+        $this->setData('eyebrowLabel', $this->plugin->getSetting($this->contextId, 'eyebrowLabel'));
         $this->setData('editorInChief', $this->plugin->getSetting($this->contextId, 'editorInChief'));
         $this->setData('issn', $this->plugin->getSetting($this->contextId, 'issn'));
         $this->setData('frequency', $this->plugin->getSetting($this->contextId, 'frequency'));
@@ -48,12 +52,14 @@ class JournalModalSettingsForm extends Form
         $this->setData('primaryUrl', $this->plugin->getSetting($this->contextId, 'primaryUrl'));
         $this->setData('secondaryLabel', $this->plugin->getSetting($this->contextId, 'secondaryLabel'));
         $this->setData('secondaryUrl', $this->plugin->getSetting($this->contextId, 'secondaryUrl'));
+        parent::initData();
     }
 
     public function readInputData(): void
     {
         $this->readUserVars([
             'editorInChief',
+            'eyebrowLabel',
             'issn',
             'frequency',
             'indexing',
@@ -70,6 +76,7 @@ class JournalModalSettingsForm extends Form
     {
         $fields = [
             'editorInChief',
+            'eyebrowLabel',
             'issn',
             'frequency',
             'indexing',
@@ -93,5 +100,15 @@ class JournalModalSettingsForm extends Form
         }
 
         parent::execute(...$functionArgs);
+    }
+
+    public function fetch($request, $template = null, $display = false): string
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'pluginName' => $this->plugin->getName(),
+        ]);
+
+        return parent::fetch($request, $template, $display);
     }
 }

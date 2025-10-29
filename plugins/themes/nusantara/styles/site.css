@@ -1,4 +1,4 @@
-/* Khusus halaman portal/site */
+﻿/* Khusus halaman portal/site */
 .nusantara-hero__search {
   display: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@
 
 .nusantara-journalPoster {
   position: relative;
-  min-height: 400px;
+  min-height: 450px;
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 42px 120px -65px rgba(9, 22, 39, 0.58);
@@ -169,6 +169,321 @@
   margin: 0;
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.83);
+}
+
+.nusantara-journalModals {
+  position: relative;
+  z-index: 0;
+}
+
+.nusantara-journalModal {
+  position: fixed;
+  inset: 0;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+  z-index: 1200;
+}
+
+.nusantara-journalModal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.nusantara-journalModal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 31, 48, 0.55);
+  backdrop-filter: blur(10px);
+  transition: opacity 0.28s ease;
+}
+
+.nusantara-journalModal__dialog {
+  position: relative;
+  width: min(100%, 980px);
+  border-radius: 32px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 45px 140px -60px rgba(8, 31, 48, 0.6);
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  max-height: calc(100vh - clamp(3rem, 8vw, 5.5rem));
+}
+
+.nusantara-journalModal__close {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 3;
+}
+
+.nusantara-journalModal__close svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.nusantara-journalModal__close:hover,
+.nusantara-journalModal__close:focus {
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(1.05);
+}
+
+.nusantara-journalModal__content {
+  display: flex;
+  flex-direction: row;
+  min-height: 420px;
+  background: #fff;
+  color: var(--nusantara-text);
+  overflow-y: auto;
+}
+
+.nusantara-journalModal__media {
+  position: relative;
+  flex: 0 0 42%;
+  background: linear-gradient(135deg, rgba(11, 114, 133, 0.45), rgba(8, 31, 48, 0.8));
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.nusantara-journalModal__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nusantara-journalModal__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 31, 48, 0.05), rgba(8, 31, 48, 0.82));
+}
+
+.nusantara-journalModal__placeholder {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  height: 100%;
+  background: radial-gradient(circle at 15% 20%, rgba(11, 114, 133, 0.55), rgba(8, 31, 48, 0.9));
+}
+
+.nusantara-journalModal__body {
+  flex: 1;
+  padding: clamp(1.8rem, 3vw, 2.6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.nusantara-journalModal__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.nusantara-journalModal__eyebrow {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--nusantara-accent);
+  font-weight: 600;
+}
+
+.nusantara-journalModal__title {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.nusantara-journalModal__description {
+  margin: 0;
+  color: var(--nusantara-text-soft);
+  line-height: 1.6;
+}
+
+.nusantara-journalModal__meta {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.nusantara-journalModal__meta li {
+  padding: 0.85rem 1rem;
+  border-radius: var(--nusantara-radius);
+  background: rgba(11, 114, 133, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.nusantara-journalModal__meta span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: rgba(8, 31, 48, 0.55);
+}
+
+.nusantara-journalModal__meta strong {
+  font-size: 0.95rem;
+  color: var(--nusantara-text);
+  font-weight: 600;
+}
+
+.nusantara-journalModal__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nusantara-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(8, 31, 48, 0.08);
+  color: rgba(8, 31, 48, 0.78);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nusantara-chip--blue {
+  background: rgba(11, 114, 133, 0.18);
+  color: #0b7285;
+}
+
+.nusantara-chip--orange {
+  background: rgba(255, 135, 0, 0.16);
+  color: #d97706;
+}
+
+.nusantara-chip--slate {
+  background: rgba(71, 85, 105, 0.16);
+  color: #1f2937;
+}
+
+.nusantara-chip--indigo {
+  background: rgba(99, 102, 241, 0.15);
+  color: #4338ca;
+}
+
+.nusantara-chip--amber {
+  background: rgba(245, 158, 11, 0.17);
+  color: #b45309;
+}
+
+.nusantara-chip--red {
+  background: rgba(220, 38, 38, 0.17);
+  color: #991b1b;
+}
+
+.nusantara-chip--violet {
+  background: rgba(167, 139, 250, 0.16);
+  color: #7c3aed;
+}
+
+.nusantara-chip--green {
+  background: rgba(34, 197, 94, 0.17);
+  color: #15803d;
+}
+
+.nusantara-journalModal__actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.nusantara-button--text {
+  background: transparent;
+  color: var(--nusantara-accent);
+  padding: 0;
+  min-height: 0;
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.nusantara-button--text:hover,
+.nusantara-button--text:focus {
+  color: rgba(8, 31, 48, 0.85);
+  background: transparent;
+}
+
+@media (max-width: 1024px) {
+  .nusantara-journalModal__content {
+    flex-direction: column;
+  }
+
+  .nusantara-journalModal__media {
+    flex: none;
+    height: 280px;
+  }
+
+  .nusantara-journalModal__close {
+    color: rgba(8, 31, 48, 0.75);
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  .nusantara-journalModal__close:hover,
+  .nusantara-journalModal__close:focus {
+    background: rgba(255, 255, 255, 1);
+  }
+}
+
+@media (max-width: 720px) {
+  .nusantara-journalModal {
+    padding: 1.2rem;
+  }
+
+  .nusantara-journalModal__dialog {
+    border-radius: 22px;
+  }
+
+  .nusantara-journalModal__content {
+    min-height: 0;
+  }
+
+  .nusantara-journalModal__media {
+    height: 220px;
+  }
+
+  .nusantara-journalModal__body {
+    padding: 1.5rem;
+  }
+
+  .nusantara-journalModal__meta {
+    grid-template-columns: 1fr;
+  }
 }
 
 .nusantara-empty {
@@ -447,5 +762,6 @@
     display: none;
   }
 }
+
 
 

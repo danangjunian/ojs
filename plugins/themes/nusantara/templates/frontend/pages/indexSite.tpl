@@ -1,4 +1,4 @@
-{**
+﻿{**
  * Nusantara Theme - Beranda Portal
  * Mengganti tata letak default halaman portal/site.
  *}
@@ -99,16 +99,28 @@
 		{else}
 			<div class="nusantara-journalGrid">
 				{foreach from=$journals item=journal}
+					{assign var="journalId" value=$journal->getId()}
 					{capture assign="url"}{url journal=$journal->getPath()}{/capture}
 					{assign var="thumb" value=$journal->getLocalizedData('journalThumbnail')}
 					{assign var="description" value=$journal->getLocalizedDescription()}
+					{assign var="modalId" value="nusantaraJournalModal"|cat:$journalId}
+					{assign var="modalData" value=$nusantaraJournalModalData[$journalId]|default:null}
 
 					{assign var="publisher" value=$journal->getData('publisherInstitution')}
 					{if !$publisher}
 						{assign var="publisher" value=$journal->getLocalizedData('publisherInstitution')}
 					{/if}
 					<article class="nusantara-journalPoster{if $thumb} has-thumb{/if}">
-						<a class="nusantara-journalPoster__link" href="{$url}" rel="bookmark">
+						<a class="nusantara-journalPoster__link"
+							href="{$url}"
+							rel="bookmark"
+							{if $modalData}
+								data-journal-modal-trigger="{$modalId}"
+								role="button"
+								aria-haspopup="dialog"
+								aria-controls="{$modalId}"
+							{/if}
+						>
 							<div class="nusantara-journalPoster__media">
 								{if $thumb}
 									<img src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}" loading="lazy" {if $thumb.altText}alt="{$thumb.altText|escape}"{/if}/>
@@ -128,12 +140,120 @@
 					</article>
 				{/foreach}
 			</div>
+			{if $nusantaraJournalModalData|@count}
+				<div class="nusantara-journalModals">
+					{foreach from=$journals item=journal}
+						{assign var="journalId" value=$journal->getId()}
+						{assign var="modalData" value=$nusantaraJournalModalData[$journalId]|default:null}
+						{if !$modalData}{continue}{/if}
+						{assign var="thumb" value=$journal->getLocalizedData('journalThumbnail')}
+						{assign var="modalId" value="nusantaraJournalModal"|cat:$journalId}
+						{capture assign="journalUrl"}{url journal=$journal->getPath()}{/capture}
+						<section class="nusantara-journalModal" id="{$modalId}" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="{$modalId}-title">
+							<div class="nusantara-journalModal__backdrop" data-modal-close></div>
+							<div class="nusantara-journalModal__dialog" role="document">
+								<button type="button" class="nusantara-journalModal__close" aria-label="{translate key="common.close"}" data-modal-close data-modal-autofocus>
+									<svg viewBox="0 0 20 20" aria-hidden="true">
+										<path d="M15.3 5.3l-1.6-1.6L10 7.4 6.3 3.7 4.7 5.3 8.4 9l-3.7 3.7 1.6 1.6L10 10.6l3.7 3.7 1.6-1.6L11.6 9z" />
+									</svg>
+								</button>
+								<div class="nusantara-journalModal__content">
+									<div class="nusantara-journalModal__media">
+										{if $thumb}
+											<img src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}" loading="lazy" {if $thumb.altText}alt="{$thumb.altText|escape}"{/if}/>
+										{else}
+											<div class="nusantara-journalModal__placeholder">
+												{$modalData.acronym|default:$modalData.name|escape}
+											</div>
+										{/if}
+									</div>
+									<div class="nusantara-journalModal__body">
+										<header class="nusantara-journalModal__header">
+											{if $modalData.eyebrowLabel}
+												<p class="nusantara-journalModal__eyebrow">{$modalData.eyebrowLabel|escape}</p>
+											{else}
+												<p class="nusantara-journalModal__eyebrow">{translate key="plugins.themes.nusantara.site.journalShowcase"}</p>
+											{/if}
+											<h3 class="nusantara-journalModal__title" id="{$modalId}-title">
+												{$modalData.name|escape}
+											</h3>
+											{if $modalData.description}
+												<p class="nusantara-journalModal__description">
+													{$modalData.description|strip_tags|escape}
+												</p>
+											{/if}
+										</header>
+
+										<ul class="nusantara-journalModal__meta">
+											{if $modalData.editorInChief}
+												<li>
+													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.editor"}</span>
+													<strong>{$modalData.editorInChief|escape}</strong>
+												</li>
+											{/if}
+											{if $modalData.issn}
+												<li>
+													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.issn"}</span>
+													<strong>{$modalData.issn|escape}</strong>
+												</li>
+											{/if}
+											{if $modalData.frequency}
+												<li>
+													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.frequency"}</span>
+													<strong>{$modalData.frequency|escape}</strong>
+												</li>
+											{/if}
+											{if $modalData.doi}
+												<li>
+													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.doi"}</span>
+													<strong>{$modalData.doi|escape}</strong>
+												</li>
+											{/if}
+											{if $modalData.license}
+												<li>
+													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.license"}</span>
+													<strong>{$modalData.license|escape}</strong>
+												</li>
+											{/if}
+										</ul>
+
+										{if $modalData.indexing|@count}
+											<div class="nusantara-journalModal__badges">
+												{foreach from=$modalData.indexing item=badge}
+													<span class="nusantara-chip {$badge.class|escape}">{$badge.label|escape}</span>
+												{/foreach}
+											</div>
+											{/if}
+
+										<div class="nusantara-journalModal__actions">
+											{if $modalData.primaryLabel && $modalData.primaryUrl}
+												<a class="nusantara-button nusantara-button--filled" href="{$modalData.primaryUrl|escape}" target="_blank" rel="noopener">
+													{$modalData.primaryLabel|escape}
+												</a>
+											{/if}
+											{if $modalData.secondaryLabel && $modalData.secondaryUrl}
+												<a class="nusantara-button nusantara-button--ghost" href="{$modalData.secondaryUrl|escape}" target="_blank" rel="noopener">
+													{$modalData.secondaryLabel|escape}
+												</a>
+											{/if}
+											<a class="nusantara-button nusantara-button--text" href="{$journalUrl|escape}">
+												{translate key="plugins.themes.nusantara.site.visitJournal"}
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					{/foreach}
+				</div>
+			{/if}
 		{/if}
 	</section>
 
 </div>
 
 {include file="frontend/components/footer.tpl"}
+
 
 
 

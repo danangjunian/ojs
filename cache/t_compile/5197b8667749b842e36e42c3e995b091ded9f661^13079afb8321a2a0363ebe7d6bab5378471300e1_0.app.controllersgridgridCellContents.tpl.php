@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-29 23:50:47
+/* Smarty version 4.5.5, created on 2025-10-30 02:16:10
   from 'app:controllersgridgridCellContents.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_690245e7d37bc4_56945734',
+  'unifunc' => 'content_690267fa5c2635_02045740',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:linkAction/linkAction.tpl' => 1,
   ),
 ),false)) {
-function content_690245e7d37bc4_56945734 (Smarty_Internal_Template $_smarty_tpl) {
+function content_690267fa5c2635_02045740 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\ojs\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 ?>
 

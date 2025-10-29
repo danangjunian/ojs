@@ -1,4 +1,8 @@
-﻿:root {
+﻿body.nusantara-modal-open, body.nusantara-modal-open .pkp_structure_page.nusantara-shell {
+  overflow: hidden;
+}
+
+:root {
   --nusantara-accent: #0b7285;
   --nusantara-accent-dark: #085b68;
   --nusantara-text: #1f2933;
@@ -1116,3 +1120,4 @@
     aspect-ratio: 4 / 3;
   }
 }
+

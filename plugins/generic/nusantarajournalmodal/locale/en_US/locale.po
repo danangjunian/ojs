@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nusantara Journal Modal\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.generic.nusantarajournalmodal.displayName"
+msgstr "Nusantara Journal Modal"
+
+msgid "plugins.generic.nusantarajournalmodal.description"
+msgstr "Provide a curated journal detail modal for the Nusantara theme, configurable per journal context."
+
+msgid "plugins.generic.nusantarajournalmodal.settings.header.journal"
+msgstr "Journal Information"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.header.indexing"
+msgstr "Indexing & Badges"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.header.links"
+msgstr "Action Buttons"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.header.additional"
+msgstr "Additional Metadata"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.editor"
+msgstr "Editor in Chief"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.issn"
+msgstr "ISSN (e-ISSN / p-ISSN)"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.frequency"
+msgstr "Publication Frequency"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.indexing"
+msgstr "Indexing labels"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.indexing.description"
+msgstr "One entry per line. Example: SINTA, DOAJ, Scopus, Google Scholar."
+
+msgid "plugins.generic.nusantarajournalmodal.settings.doi"
+msgstr "Current issue DOI or identifier"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.license"
+msgstr "License & APC information"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.primaryLabel"
+msgstr "Primary action label"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.primaryUrl"
+msgstr "Primary action URL"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.secondaryLabel"
+msgstr "Secondary action label"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.secondaryUrl"
+msgstr "Secondary action URL"
+
+msgid "plugins.generic.nusantarajournalmodal.validation.editor"
+msgstr "Please provide a valid editor in chief name."
+
+msgid "plugins.generic.nusantarajournalmodal.validation.issn"
+msgstr "Please provide ISSN information (optional)."
+
+msgid "plugins.generic.nusantarajournalmodal.validation.primaryUrl"
+msgstr "Please provide a valid URL for the primary action button."
+
+msgid "plugins.generic.nusantarajournalmodal.validation.secondaryUrl"
+msgstr "Please provide a valid URL for the secondary action button."
+msgid "plugins.generic.nusantarajournalmodal.settings.eyebrowLabel"
+msgstr "Intro heading (e.g. Discover Our Journals)"
