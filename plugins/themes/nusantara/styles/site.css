@@ -265,7 +265,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(1.2rem, 2.5vw, 2rem);
+  padding: clamp(0.1rem, 1vw, 1rem);
 }
 
 .nusantara-journalModal__media img {
@@ -293,7 +293,7 @@
 
 .nusantara-journalModal__body {
   flex: 1;
-  padding: clamp(1.8rem, 3vw, 2.6rem);
+  padding: clamp(1rem, 0.1vw, 0.1rem);
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
@@ -507,7 +507,7 @@ body.nusantara-modal-open .nusantara-journalPoster__overlay {
   }
 
   .nusantara-journalModal__media {
-    height: 220px;
+    display: none;
   }
 
   .nusantara-journalModal__body {

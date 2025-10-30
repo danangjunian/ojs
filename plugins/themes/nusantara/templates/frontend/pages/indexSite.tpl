@@ -169,11 +169,6 @@
 									</div>
 									<div class="nusantara-journalModal__body">
 										<header class="nusantara-journalModal__header">
-											{if $modalData.eyebrowLabel}
-												<p class="nusantara-journalModal__eyebrow">{$modalData.eyebrowLabel|escape}</p>
-											{else}
-												<p class="nusantara-journalModal__eyebrow">{translate key="plugins.themes.nusantara.site.journalShowcase"}</p>
-											{/if}
 											<h3 class="nusantara-journalModal__title" id="{$modalId}-title">
 												{$modalData.name|escape}
 											</h3>
@@ -196,12 +191,6 @@
 												<li>
 													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.frequency"}</span>
 													<strong>{$modalData.frequency|escape}</strong>
-												</li>
-											{/if}
-											{if $modalData.doi}
-												<li>
-													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.doi"}</span>
-													<strong>{$modalData.doi|escape}</strong>
 												</li>
 											{/if}
 											{if $modalData.license}
