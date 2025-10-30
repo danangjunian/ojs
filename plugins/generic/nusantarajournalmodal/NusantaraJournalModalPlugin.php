@@ -181,7 +181,7 @@ class NusantaraJournalModalPlugin extends GenericPlugin
             'sinta1' => [
                 'label' => 'SINTA 1',
                 'class' => $this->resolveBadgeClass('SINTA 1'),
-                'icon' => null,
+                'icon' => 'static/indexing/sinta-1.png',
             ],
             'sinta2' => [
                 'label' => 'SINTA 2',
@@ -191,17 +191,17 @@ class NusantaraJournalModalPlugin extends GenericPlugin
             'sinta3' => [
                 'label' => 'SINTA 3',
                 'class' => $this->resolveBadgeClass('SINTA 3'),
-                'icon' => null,
+                'icon' => 'static/indexing/sinta-3.png',
             ],
             'sinta4' => [
                 'label' => 'SINTA 4',
                 'class' => $this->resolveBadgeClass('SINTA 4'),
-                'icon' => null,
+                'icon' => 'static/indexing/sinta-4.png',
             ],
             'sinta5' => [
                 'label' => 'SINTA 5',
                 'class' => $this->resolveBadgeClass('SINTA 5'),
-                'icon' => null,
+                'icon' => 'static/indexing/sinta-5.png',
             ],
             'sinta6' => [
                 'label' => 'SINTA 6',
