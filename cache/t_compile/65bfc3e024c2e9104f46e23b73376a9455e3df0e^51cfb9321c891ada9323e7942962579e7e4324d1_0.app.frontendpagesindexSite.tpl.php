@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 16:51:58
+/* Smarty version 4.5.5, created on 2025-10-30 17:49:06
   from 'app:frontendpagesindexSite.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6903353edeacd3_29774126',
+  'unifunc' => 'content_690342a2ece8d8_52968243',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '51cfb9321c891ada9323e7942962579e7e4324d1' => 
     array (
       0 => 'app:frontendpagesindexSite.tpl',
-      1 => 1761817451,
+      1 => 1761820892,
       2 => 'app',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6903353edeacd3_29774126 (Smarty_Internal_Template $_smarty_tpl) {
+function content_690342a2ece8d8_52968243 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -317,18 +317,38 @@ $_smarty_tpl->tpl_vars['badge']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['badge']->value) {
 $_smarty_tpl->tpl_vars['badge']->do_else = false;
 ?>
+													<?php ob_start();
+echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['class'] ));
+$_prefixVariable2=ob_get_clean();
+$_smarty_tpl->_assignInScope('chipClass', "nusantara-chip ".$_prefixVariable2);?>
+													<?php if ($_smarty_tpl->tpl_vars['badge']->value['icon']) {?>
+														<?php $_smarty_tpl->_assignInScope('chipClass', ((string)$_smarty_tpl->tpl_vars['chipClass']->value)." nusantara-chip--iconOnly");?>
+													<?php }?>
+
 													<?php if ($_smarty_tpl->tpl_vars['badge']->value['url']) {?>
-														<a class="nusantara-chip <?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['class'] ));?>
+														<a class="<?php echo $_smarty_tpl->tpl_vars['chipClass']->value;?>
  nusantara-chip--link" href="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['url'] ));?>
 " target="_blank" rel="noopener">
-															<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['label'] ));?>
+															<?php if ($_smarty_tpl->tpl_vars['badge']->value['icon']) {?>
+																<img class="nusantara-chip__icon" src="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['icon'] ));?>
+" alt="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['label'] ));?>
+" loading="lazy" />
+															<?php } else { ?>
+																<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['label'] ));?>
 
+															<?php }?>
 														</a>
 													<?php } else { ?>
-														<span class="nusantara-chip <?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['class'] ));?>
+														<span class="<?php echo $_smarty_tpl->tpl_vars['chipClass']->value;?>
 ">
-															<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['label'] ));?>
+															<?php if ($_smarty_tpl->tpl_vars['badge']->value['icon']) {?>
+																<img class="nusantara-chip__icon" src="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['icon'] ));?>
+" alt="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['label'] ));?>
+" loading="lazy" />
+															<?php } else { ?>
+																<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['badge']->value['label'] ));?>
 
+															<?php }?>
 														</span>
 													<?php }?>
 												<?php

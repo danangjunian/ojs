@@ -215,13 +215,26 @@
 										{if $modalData.indexing|@count}
 											<div class="nusantara-journalModal__badges">
 												{foreach from=$modalData.indexing item=badge}
+													{assign var="chipClass" value="nusantara-chip {$badge.class|escape}"}
+													{if $badge.icon}
+														{assign var="chipClass" value="{$chipClass} nusantara-chip--iconOnly"}
+													{/if}
+
 													{if $badge.url}
-														<a class="nusantara-chip {$badge.class|escape} nusantara-chip--link" href="{$badge.url|escape}" target="_blank" rel="noopener">
-															{$badge.label|escape}
+														<a class="{$chipClass} nusantara-chip--link" href="{$badge.url|escape}" target="_blank" rel="noopener">
+															{if $badge.icon}
+																<img class="nusantara-chip__icon" src="{$badge.icon|escape}" alt="{$badge.label|escape}" loading="lazy" />
+															{else}
+																{$badge.label|escape}
+															{/if}
 														</a>
 													{else}
-														<span class="nusantara-chip {$badge.class|escape}">
-															{$badge.label|escape}
+														<span class="{$chipClass}">
+															{if $badge.icon}
+																<img class="nusantara-chip__icon" src="{$badge.icon|escape}" alt="{$badge.label|escape}" loading="lazy" />
+															{else}
+																{$badge.label|escape}
+															{/if}
 														</span>
 													{/if}
 												{/foreach}

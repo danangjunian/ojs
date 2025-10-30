@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 16:51:02
+/* Smarty version 4.5.5, created on 2025-10-30 17:37:56
   from 'app:controllersgridgridHeader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_690335064ba654_28805729',
+  'unifunc' => 'content_69034004beb908_31063434',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:controllers/grid/gridActionsAbove.tpl' => 1,
   ),
 ),false)) {
-function content_690335064ba654_28805729 (Smarty_Internal_Template $_smarty_tpl) {
+function content_69034004beb908_31063434 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="header">
 
 	<?php if ($_smarty_tpl->tpl_vars['grid']->value->getTitle()) {?>

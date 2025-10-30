@@ -188,6 +188,11 @@ class NusantaraThemePlugin extends ThemePlugin
             return false;
         }
 
+        $request = Application::get()->getRequest();
+        $baseUrl = $request?->getBaseUrl() ?? '';
+        $modalPluginPath = $modalPlugin->getPluginPath();
+        $pluginBaseUrl = $modalPluginPath ? rtrim($baseUrl . '/' . $modalPluginPath, '/') : '';
+
         $modalData = [];
         foreach ($journals as $journal) {
             if (!$journal instanceof Journal) {
@@ -200,6 +205,16 @@ class NusantaraThemePlugin extends ThemePlugin
             }
 
             $data = $modalPlugin->getModalData($contextId);
+
+            if (!empty($data['indexing']) && is_array($data['indexing']) && $pluginBaseUrl) {
+                foreach ($data['indexing'] as &$badge) {
+                    if (!empty($badge['icon'])) {
+                        $badge['icon'] = $pluginBaseUrl . '/' . ltrim((string) $badge['icon'], '/');
+                    }
+                }
+                unset($badge);
+            }
+
             $data['name'] = $journal->getLocalizedName();
             $data['acronym'] = $journal->getLocalizedAcronym();
             $data['description'] = $journal->getLocalizedDescription();

@@ -391,6 +391,17 @@
   opacity: 0.85;
 }
 
+.nusantara-chip--iconOnly {
+  padding: 0.2rem 0.35rem;
+  background: transparent;
+}
+
+.nusantara-chip__icon {
+  width: 100px;
+  object-fit: contain;
+  display: block;
+}
+
 .nusantara-chip--blue {
   background: rgba(11, 114, 133, 0.18);
   color: #0b7285;

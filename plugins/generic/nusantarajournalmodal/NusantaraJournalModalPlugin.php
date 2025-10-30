@@ -167,35 +167,103 @@ class NusantaraJournalModalPlugin extends GenericPlugin
      */
     public function getIndexingOptions(): array
     {
-        $labels = [
-            'googleScholar' => 'Google Scholar',
-            'garuda' => 'GARUDA',
-            'sinta1' => 'SINTA 1',
-            'sinta2' => 'SINTA 2',
-            'sinta3' => 'SINTA 3',
-            'sinta4' => 'SINTA 4',
-            'sinta5' => 'SINTA 5',
-            'sinta6' => 'SINTA 6',
-            'moraref' => 'Moraref',
-            'indonesiaOneSearch' => 'Indonesia OneSearch',
-            'neliti' => 'Neliti',
-            'pkpIndex' => 'PKP Index',
-            'doaj' => 'DOAJ',
-            'base' => 'BASE',
-            'openaire' => 'OpenAIRE',
-            'worldcat' => 'WorldCat',
-            'dimensions' => 'Dimensions',
-            'theLens' => 'The Lens',
-            'scopus' => 'Scopus',
+        $options = [
+            'googleScholar' => [
+                'label' => 'Google Scholar',
+                'class' => $this->resolveBadgeClass('Google Scholar'),
+                'icon' => null,
+            ],
+            'garuda' => [
+                'label' => 'GARUDA',
+                'class' => $this->resolveBadgeClass('GARUDA'),
+                'icon' => null,
+            ],
+            'sinta1' => [
+                'label' => 'SINTA 1',
+                'class' => $this->resolveBadgeClass('SINTA 1'),
+                'icon' => null,
+            ],
+            'sinta2' => [
+                'label' => 'SINTA 2',
+                'class' => $this->resolveBadgeClass('SINTA 2'),
+                'icon' => 'static/indexing/sinta-2.png',
+            ],
+            'sinta3' => [
+                'label' => 'SINTA 3',
+                'class' => $this->resolveBadgeClass('SINTA 3'),
+                'icon' => null,
+            ],
+            'sinta4' => [
+                'label' => 'SINTA 4',
+                'class' => $this->resolveBadgeClass('SINTA 4'),
+                'icon' => null,
+            ],
+            'sinta5' => [
+                'label' => 'SINTA 5',
+                'class' => $this->resolveBadgeClass('SINTA 5'),
+                'icon' => null,
+            ],
+            'sinta6' => [
+                'label' => 'SINTA 6',
+                'class' => $this->resolveBadgeClass('SINTA 6'),
+                'icon' => null,
+            ],
+            'moraref' => [
+                'label' => 'Moraref',
+                'class' => $this->resolveBadgeClass('Moraref'),
+                'icon' => null,
+            ],
+            'indonesiaOneSearch' => [
+                'label' => 'Indonesia OneSearch',
+                'class' => $this->resolveBadgeClass('Indonesia OneSearch'),
+                'icon' => null,
+            ],
+            'neliti' => [
+                'label' => 'Neliti',
+                'class' => $this->resolveBadgeClass('Neliti'),
+                'icon' => null,
+            ],
+            'pkpIndex' => [
+                'label' => 'PKP Index',
+                'class' => $this->resolveBadgeClass('PKP Index'),
+                'icon' => null,
+            ],
+            'doaj' => [
+                'label' => 'DOAJ',
+                'class' => $this->resolveBadgeClass('DOAJ'),
+                'icon' => null,
+            ],
+            'base' => [
+                'label' => 'BASE',
+                'class' => $this->resolveBadgeClass('BASE'),
+                'icon' => null,
+            ],
+            'openaire' => [
+                'label' => 'OpenAIRE',
+                'class' => $this->resolveBadgeClass('OpenAIRE'),
+                'icon' => null,
+            ],
+            'worldcat' => [
+                'label' => 'WorldCat',
+                'class' => $this->resolveBadgeClass('WorldCat'),
+                'icon' => null,
+            ],
+            'dimensions' => [
+                'label' => 'Dimensions',
+                'class' => $this->resolveBadgeClass('Dimensions'),
+                'icon' => null,
+            ],
+            'theLens' => [
+                'label' => 'The Lens',
+                'class' => $this->resolveBadgeClass('The Lens'),
+                'icon' => null,
+            ],
+            'scopus' => [
+                'label' => 'Scopus',
+                'class' => $this->resolveBadgeClass('Scopus'),
+                'icon' => null,
+            ],
         ];
-
-        $options = [];
-        foreach ($labels as $id => $label) {
-            $options[$id] = [
-                'label' => $label,
-                'class' => $this->resolveBadgeClass($label),
-            ];
-        }
 
         return $options;
     }
@@ -257,12 +325,14 @@ class NusantaraJournalModalPlugin extends GenericPlugin
                 if ($id !== '' && isset($options[$id])) {
                     $label = $options[$id]['label'];
                     $class = $options[$id]['class'];
+                    $icon = $options[$id]['icon'] ?? null;
                 } else {
                     $label = $storedLabel ?? ($id !== '' ? $id : '');
                     if ($label === '') {
                         continue;
                     }
                     $class = $this->resolveBadgeClass($label);
+                    $icon = null;
                 }
 
                 $url = $entry['url'] ?? null;
@@ -279,6 +349,7 @@ class NusantaraJournalModalPlugin extends GenericPlugin
                     'label' => $label,
                     'class' => $class,
                     'url' => $url,
+                    'icon' => $icon,
                 ];
             }
             return $badges;
@@ -302,6 +373,7 @@ class NusantaraJournalModalPlugin extends GenericPlugin
                 'label' => $label,
                 'class' => $this->resolveBadgeClass($label),
                 'url' => null,
+                'icon' => null,
             ];
         }
 
