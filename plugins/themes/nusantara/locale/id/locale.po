@@ -18,7 +18,7 @@ msgid "plugins.themes.nusantara.site.journalShowcaseDescription"
 msgstr "Temukan jurnal pilihan dengan tampilan baru, edisi kurasi, dan komunitas ilmiah yang aktif."
 
 msgid "plugins.themes.nusantara.site.visitJournal"
-msgstr "Kunjungi halaman jurnal"
+msgstr "Kunjungi Jurnal"
 
 msgid "plugins.themes.nusantara.footer.callForPapers"
 msgstr "Kirim manuskrip Anda"

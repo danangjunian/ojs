@@ -211,17 +211,17 @@ class NusantaraJournalModalPlugin extends GenericPlugin
             'moraref' => [
                 'label' => 'Moraref',
                 'class' => $this->resolveBadgeClass('Moraref'),
-                'icon' => null,
+                'icon' => 'static/indexing/moraref.png',
             ],
             'indonesiaOneSearch' => [
                 'label' => 'Indonesia OneSearch',
                 'class' => $this->resolveBadgeClass('Indonesia OneSearch'),
-                'icon' => null,
+                'icon' => 'static/indexing/indonesia-one-search.png',
             ],
             'neliti' => [
                 'label' => 'Neliti',
                 'class' => $this->resolveBadgeClass('Neliti'),
-                'icon' => null,
+                'icon' => 'static/indexing/neliti.png',
             ],
             'pkpIndex' => [
                 'label' => 'PKP Index',
@@ -231,27 +231,27 @@ class NusantaraJournalModalPlugin extends GenericPlugin
             'doaj' => [
                 'label' => 'DOAJ',
                 'class' => $this->resolveBadgeClass('DOAJ'),
-                'icon' => null,
+                'icon' => 'static/indexing/doaj.png',
             ],
             'base' => [
                 'label' => 'BASE',
                 'class' => $this->resolveBadgeClass('BASE'),
-                'icon' => null,
+                'icon' => 'static/indexing/base.png',
             ],
             'openaire' => [
                 'label' => 'OpenAIRE',
                 'class' => $this->resolveBadgeClass('OpenAIRE'),
-                'icon' => null,
+                'icon' => 'static/indexing/openaire.png',
             ],
             'worldcat' => [
                 'label' => 'WorldCat',
                 'class' => $this->resolveBadgeClass('WorldCat'),
-                'icon' => null,
+                'icon' => 'static/indexing/worldcat.png',
             ],
             'dimensions' => [
                 'label' => 'Dimensions',
                 'class' => $this->resolveBadgeClass('Dimensions'),
-                'icon' => null,
+                'icon' => 'static/indexing/dimensions.png',
             ],
             'theLens' => [
                 'label' => 'The Lens',
@@ -261,7 +261,7 @@ class NusantaraJournalModalPlugin extends GenericPlugin
             'scopus' => [
                 'label' => 'Scopus',
                 'class' => $this->resolveBadgeClass('Scopus'),
-                'icon' => null,
+                'icon' => 'static/indexing/scopus.png',
             ],
         ];
 

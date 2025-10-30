@@ -18,7 +18,7 @@ msgid "plugins.themes.nusantara.site.journalShowcaseDescription"
 msgstr "Explore highlighted journals with refreshed covers, curated issues, and engaging scholarly communities."
 
 msgid "plugins.themes.nusantara.site.visitJournal"
-msgstr "Visit journal homepage"
+msgstr "Visit Journal"
 
 msgid "plugins.themes.nusantara.footer.callForPapers"
 msgstr "Submit your manuscript"
