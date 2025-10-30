@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-31 00:02:25
+/* Smarty version 4.5.5, created on 2025-10-31 01:12:59
   from 'plugins-1-plugins-generic-nusantarajournalmodal-generic-nusantarajournalmodal:settingsForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_69039a2154aec5_54257066',
+  'unifunc' => 'content_6903aaab3f2872_49234194',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:controllers/notification/inPlaceNotification.tpl' => 1,
   ),
 ),false)) {
-function content_69039a2154aec5_54257066 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6903aaab3f2872_49234194 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
 	$(function() {

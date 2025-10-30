@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 17:37:57
+/* Smarty version 4.5.5, created on 2025-10-31 01:12:51
   from 'app:linkActionlinkActionOptions.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6903400521fab2_09397504',
+  'unifunc' => 'content_6903aaa3ec53f4_11498266',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6903400521fab2_09397504 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6903aaa3ec53f4_11498266 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 {
 	<?php if ($_smarty_tpl->tpl_vars['selfActivate']->value) {?>

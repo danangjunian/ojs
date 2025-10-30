@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 17:37:48
+/* Smarty version 4.5.5, created on 2025-10-31 01:06:15
   from 'app:commonurlInEl.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_69033ffc9accb6_06044008',
+  'unifunc' => 'content_6903a917686801_78713609',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_69033ffc9accb6_06044008 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6903a917686801_78713609 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['inVueEl']->value) {?>
 <component is="script">
 <?php } else {

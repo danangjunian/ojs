@@ -1,4 +1,4 @@
-1793356645a:3:{s:6:"domain";N;s:12:"plural-forms";N;s:8:"messages";a:1:{s:0:"";a:4:{s:40:"emails.manualPaymentNotification.subject";s:27:"Manual Payment Notification";s:37:"emails.manualPaymentNotification.body";s:328:"A manual payment needs to be processed for the journal {$contextName} and the user &quot;{$senderUsername}&quot;.<br />
+1793382150a:3:{s:6:"domain";N;s:12:"plural-forms";N;s:8:"messages";a:1:{s:0:"";a:4:{s:40:"emails.manualPaymentNotification.subject";s:27:"Manual Payment Notification";s:37:"emails.manualPaymentNotification.body";s:328:"A manual payment needs to be processed for the journal {$contextName} and the user &quot;{$senderUsername}&quot;.<br />
 <br />
 The item being paid for is &quot;{$paymentName}&quot;.<br />
 The cost is {$paymentAmount} ({$paymentCurrencyCode}).<br />

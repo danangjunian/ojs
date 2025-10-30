@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 17:37:56
+/* Smarty version 4.5.5, created on 2025-10-31 01:12:50
   from 'app:linkActionlinkActionButton.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_69034004ce5225_78784479',
+  'unifunc' => 'content_6903aaa21f64d8_70342800',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_69034004ce5225_78784479 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6903aaa21f64d8_70342800 (Smarty_Internal_Template $_smarty_tpl) {
 ?><a 
     href="#" 
     id="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['buttonId']->value ));?>

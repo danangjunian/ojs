@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 17:38:50
+/* Smarty version 4.5.5, created on 2025-10-31 00:42:46
   from 'app:frontendcomponentsheader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6903403a8d80d6_49451960',
+  'unifunc' => 'content_6903a396a8d977_71989089',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/skipLinks.tpl' => 1,
   ),
 ),false)) {
-function content_6903403a8d80d6_49451960 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6903a396a8d977_71989089 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\ojs\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.replace.php','function'=>'smarty_modifier_replace',),));
 $_smarty_tpl->_assignInScope('isSiteContext', (!$_smarty_tpl->tpl_vars['currentContext']->value));
 $_smarty_tpl->_assignInScope('siteBrandTitle', $_smarty_tpl->tpl_vars['displayPageHeaderTitle']->value);

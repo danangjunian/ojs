@@ -3,8 +3,8 @@
 }
 
 :root {
-  --nusantara-accent: #0b7285;
-  --nusantara-accent-dark: #085b68;
+  --nusantara-accent: #f0f0f0;
+  --nusantara-accent-dark: #1e9989;
   --nusantara-text: #1f2933;
   --nusantara-text-soft: rgba(31, 41, 51, 0.65);
   --nusantara-border: rgba(15, 23, 42, 0.12);
@@ -33,13 +33,13 @@
 }
 
 .nusantara-body a {
-  color: var(--nusantara-accent);
+  
   text-decoration: none;
   transition: var(--nusantara-transition);
 }
 
-.nusantara-body a:hover,
-.nusantara-body a:focus {
+.nusantara-body a:hover:not(.nusantara-button),
+.nusantara-body a:focus:not(.nusantara-button) {
   color: var(--nusantara-accent-dark);
   text-decoration: none;
 }
@@ -682,15 +682,16 @@
 }
 
 .nusantara-button--ghost {
-  background: transparent;
+  background: #0b7285;
   border-color: rgba(255, 255, 255, 0.4);
   color: #fff;
 }
 
 .nusantara-button--ghost:hover,
 .nusantara-button--ghost:focus {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.12);
+  background: #0a6275;
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
 }
 
 .nusantara-button--icon {
