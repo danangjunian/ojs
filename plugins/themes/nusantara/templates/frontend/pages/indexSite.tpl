@@ -215,10 +215,18 @@
 										{if $modalData.indexing|@count}
 											<div class="nusantara-journalModal__badges">
 												{foreach from=$modalData.indexing item=badge}
-													<span class="nusantara-chip {$badge.class|escape}">{$badge.label|escape}</span>
+													{if $badge.url}
+														<a class="nusantara-chip {$badge.class|escape} nusantara-chip--link" href="{$badge.url|escape}" target="_blank" rel="noopener">
+															{$badge.label|escape}
+														</a>
+													{else}
+														<span class="nusantara-chip {$badge.class|escape}">
+															{$badge.label|escape}
+														</span>
+													{/if}
 												{/foreach}
 											</div>
-											{/if}
+										{/if}
 
 										<div class="nusantara-journalModal__actions">
 											{if $modalData.primaryLabel && $modalData.primaryUrl}

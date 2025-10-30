@@ -161,6 +161,46 @@ class NusantaraJournalModalPlugin extends GenericPlugin
     }
 
     /**
+     * Daftar opsi indeksasi yang tersedia dalam bentuk [id => ['label' => ..., 'class' => ...]].
+     *
+     * @return array<string,array<string,string>>
+     */
+    public function getIndexingOptions(): array
+    {
+        $labels = [
+            'googleScholar' => 'Google Scholar',
+            'garuda' => 'GARUDA',
+            'sinta1' => 'SINTA 1',
+            'sinta2' => 'SINTA 2',
+            'sinta3' => 'SINTA 3',
+            'sinta4' => 'SINTA 4',
+            'sinta5' => 'SINTA 5',
+            'sinta6' => 'SINTA 6',
+            'moraref' => 'Moraref',
+            'indonesiaOneSearch' => 'Indonesia OneSearch',
+            'neliti' => 'Neliti',
+            'pkpIndex' => 'PKP Index',
+            'doaj' => 'DOAJ',
+            'base' => 'BASE',
+            'openaire' => 'OpenAIRE',
+            'worldcat' => 'WorldCat',
+            'dimensions' => 'Dimensions',
+            'theLens' => 'The Lens',
+            'scopus' => 'Scopus',
+        ];
+
+        $options = [];
+        foreach ($labels as $id => $label) {
+            $options[$id] = [
+                'label' => $label,
+                'class' => $this->resolveBadgeClass($label),
+            ];
+        }
+
+        return $options;
+    }
+
+    /**
      * Ambil data modal untuk satu konteks jurnal.
      *
      * @return array<string,mixed>
@@ -174,7 +214,7 @@ class NusantaraJournalModalPlugin extends GenericPlugin
             'editorInChief' => $settingsDao->getSetting($contextId, $this->getName(), 'editorInChief'),
             'issn' => $settingsDao->getSetting($contextId, $this->getName(), 'issn'),
             'frequency' => $settingsDao->getSetting($contextId, $this->getName(), 'frequency'),
-            'indexing' => $this->buildIndexingBadges((string) $settingsDao->getSetting($contextId, $this->getName(), 'indexing')),
+            'indexing' => $this->buildIndexingBadges($settingsDao->getSetting($contextId, $this->getName(), 'indexing')),
             'doi' => $settingsDao->getSetting($contextId, $this->getName(), 'doi'),
             'license' => $settingsDao->getSetting($contextId, $this->getName(), 'license'),
             'primaryLabel' => $settingsDao->getSetting($contextId, $this->getName(), 'primaryLabel'),
@@ -198,21 +238,61 @@ class NusantaraJournalModalPlugin extends GenericPlugin
     /**
      * Ubah daftar indeksasi (newline separated) menjadi array badge.
      *
-     * @param string|null $raw
-     * @return array<int,array<string,string>>
+     * @param mixed $raw
+     * @return array<int,array<string,string|null>>
      */
-    protected function buildIndexingBadges(?string $raw): array
+    protected function buildIndexingBadges($raw): array
     {
+        $badges = [];
+        $options = $this->getIndexingOptions();
+
+        if (is_array($raw)) {
+            foreach ($raw as $entry) {
+                if (!is_array($entry)) {
+                    continue;
+                }
+                $id = isset($entry['id']) ? trim((string) $entry['id']) : '';
+                $storedLabel = isset($entry['label']) ? trim((string) $entry['label']) : null;
+
+                if ($id !== '' && isset($options[$id])) {
+                    $label = $options[$id]['label'];
+                    $class = $options[$id]['class'];
+                } else {
+                    $label = $storedLabel ?? ($id !== '' ? $id : '');
+                    if ($label === '') {
+                        continue;
+                    }
+                    $class = $this->resolveBadgeClass($label);
+                }
+
+                $url = $entry['url'] ?? null;
+                if (is_string($url)) {
+                    $url = trim($url);
+                    if ($url === '') {
+                        $url = null;
+                    }
+                } else {
+                    $url = null;
+                }
+
+                $badges[] = [
+                    'label' => $label,
+                    'class' => $class,
+                    'url' => $url,
+                ];
+            }
+            return $badges;
+        }
+
         if (!$raw) {
             return [];
         }
 
-        $lines = preg_split("/\r\n|\r|\n/", $raw);
+        $lines = preg_split("/\r\n|\r|\n/", (string) $raw);
         if (!$lines) {
             return [];
         }
 
-        $badges = [];
         foreach ($lines as $line) {
             $label = trim($line);
             if ($label === '') {
@@ -221,6 +301,7 @@ class NusantaraJournalModalPlugin extends GenericPlugin
             $badges[] = [
                 'label' => $label,
                 'class' => $this->resolveBadgeClass($label),
+                'url' => null,
             ];
         }
 
@@ -240,6 +321,14 @@ class NusantaraJournalModalPlugin extends GenericPlugin
             str_contains($key, 'google') => 'nusantara-chip--indigo',
             str_contains($key, 'crossref') => 'nusantara-chip--amber',
             str_contains($key, 'garuda') => 'nusantara-chip--red',
+            str_contains($key, 'moraref') => 'nusantara-chip--green',
+            str_contains($key, 'pkp') => 'nusantara-chip--slate',
+            str_contains($key, 'neliti') => 'nusantara-chip--indigo',
+            str_contains($key, 'one search') || str_contains($key, 'onesearch') => 'nusantara-chip--slate',
+            str_contains($key, 'openaire') => 'nusantara-chip--violet',
+            str_contains($key, 'worldcat') => 'nusantara-chip--blue',
+            str_contains($key, 'dimensions') => 'nusantara-chip--amber',
+            str_contains($key, 'lens') => 'nusantara-chip--indigo',
             str_contains($key, 'scilit') => 'nusantara-chip--violet',
             str_contains($key, 'base') => 'nusantara-chip--green',
             default => 'nusantara-chip--slate',

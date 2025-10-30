@@ -70,3 +70,11 @@ msgid "plugins.generic.nusantarajournalmodal.validation.secondaryUrl"
 msgstr "Please provide a valid URL for the secondary action button."
 msgid "plugins.generic.nusantarajournalmodal.settings.eyebrowLabel"
 msgstr "Intro heading (e.g. Discover Our Journals)"
+msgid "plugins.generic.nusantarajournalmodal.settings.indexing.description.dropdown"
+msgstr "Select an index and provide its URL. Leave unused rows blank."
+
+msgid "plugins.generic.nusantarajournalmodal.settings.indexing.option"
+msgstr "Choose index"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.indexing.url"
+msgstr "Index URL"

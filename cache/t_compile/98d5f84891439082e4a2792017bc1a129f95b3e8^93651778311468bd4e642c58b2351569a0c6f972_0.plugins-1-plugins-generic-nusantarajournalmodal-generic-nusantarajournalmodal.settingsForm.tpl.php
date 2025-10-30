@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 16:25:54
+/* Smarty version 4.5.5, created on 2025-10-30 16:51:09
   from 'plugins-1-plugins-generic-nusantarajournalmodal-generic-nusantarajournalmodal:settingsForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_69032f225da2b2_82873702',
+  'unifunc' => 'content_6903350ddc6b92_07862546',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '93651778311468bd4e642c58b2351569a0c6f972' => 
     array (
       0 => 'plugins-1-plugins-generic-nusantarajournalmodal-generic-nusantarajournalmodal:settingsForm.tpl',
-      1 => 1761766457,
+      1 => 1761817577,
       2 => 'plugins-1-plugins-generic-nusantarajournalmodal-generic-nusantarajournalmodal',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:controllers/notification/inPlaceNotification.tpl' => 1,
   ),
 ),false)) {
-function content_69032f225da2b2_82873702 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6903350ddc6b92_07862546 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
 	$(function() {
@@ -29,6 +29,20 @@ echo '<script'; ?>
 	});
 <?php echo '</script'; ?>
 >
+
+<style>
+	.nusantara-indexingRows {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.nusantara-indexingRow__note {
+		margin: 0.25rem 0 0;
+		font-size: 0.75rem;
+		color: #6b7280;
+	}
+</style>
 
 <form class="pkp_form" id="nusantaraJournalModalSettingsForm" method="post" action="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>PKP\core\PKPApplication::ROUTE_COMPONENT,'op'=>"manage",'category'=>"generic",'plugin'=>$_smarty_tpl->tpl_vars['pluginName']->value,'verb'=>"settings",'save'=>true),$_smarty_tpl ) );?>
 ">
@@ -72,15 +86,43 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 if (!is_callable($_block_plugin3)) {
 throw new SmartyException('block tag \'fbvFormSection\' not callable or registered');
 }
-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('fbvFormSection', array('title'=>"plugins.generic.nusantarajournalmodal.settings.header.indexing"));
+$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('fbvFormSection', array('title'=>"plugins.generic.nusantarajournalmodal.settings.header.indexing",'description'=>"plugins.generic.nusantarajournalmodal.settings.indexing.description.dropdown"));
 $_block_repeat=true;
-echo $_block_plugin3(array('title'=>"plugins.generic.nusantarajournalmodal.settings.header.indexing"), null, $_smarty_tpl, $_block_repeat);
+echo $_block_plugin3(array('title'=>"plugins.generic.nusantarajournalmodal.settings.header.indexing",'description'=>"plugins.generic.nusantarajournalmodal.settings.indexing.description.dropdown"), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>
-		<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['fbvElement'][0], array( array('type'=>"textarea",'id'=>"indexing",'name'=>"indexing",'value'=>$_smarty_tpl->tpl_vars['indexing']->value,'label'=>"plugins.generic.nusantarajournalmodal.settings.indexing",'size'=>$_smarty_tpl->tpl_vars['fbvStyles']->value['size']['MEDIUM'],'description'=>"plugins.generic.nusantarajournalmodal.settings.indexing.description"),$_smarty_tpl ) );?>
+		<div class="nusantara-indexingRows">
+			<?php
+$__section_row_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['indexingRowCount']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_row_0_total = $__section_row_0_loop;
+$_smarty_tpl->tpl_vars['__smarty_section_row'] = new Smarty_Variable(array());
+if ($__section_row_0_total !== 0) {
+for ($__section_row_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_row']->value['index'] = 0; $__section_row_0_iteration <= $__section_row_0_total; $__section_row_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_row']->value['index']++){
+?>
+				<?php $_smarty_tpl->_assignInScope('rowIndex', (isset($_smarty_tpl->tpl_vars['__smarty_section_row']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_row']->value['index'] : null));?>
+				<?php $_smarty_tpl->_assignInScope('rowData', (($tmp = $_smarty_tpl->tpl_vars['indexingRows']->value[$_smarty_tpl->tpl_vars['rowIndex']->value] ?? null)===null||$tmp==='' ? array() ?? null : $tmp));?>
+				<?php $_smarty_tpl->_assignInScope('rowId', (($tmp = $_smarty_tpl->tpl_vars['rowData']->value['id'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp));?>
+				<?php $_smarty_tpl->_assignInScope('rowUrl', (($tmp = $_smarty_tpl->tpl_vars['rowData']->value['url'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp));?>
+				<?php $_smarty_tpl->_assignInScope('rowLabel', (($tmp = $_smarty_tpl->tpl_vars['rowData']->value['label'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp));?>
+				<div class="nusantara-indexingRow">
+					<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['fbvElement'][0], array( array('type'=>"select",'id'=>"indexing-".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."-id",'name'=>"indexing[".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."][id]",'label'=>"plugins.generic.nusantarajournalmodal.settings.indexing.option",'from'=>$_smarty_tpl->tpl_vars['indexingOptions']->value,'selected'=>$_smarty_tpl->tpl_vars['rowId']->value,'translate'=>false,'defaultValue'=>'','size'=>$_smarty_tpl->tpl_vars['fbvStyles']->value['size']['MEDIUM']),$_smarty_tpl ) );?>
 
+					<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['fbvElement'][0], array( array('type'=>"text",'id'=>"indexing-".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."-url",'name'=>"indexing[".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."][url]",'value'=>$_smarty_tpl->tpl_vars['rowUrl']->value,'label'=>"plugins.generic.nusantarajournalmodal.settings.indexing.url",'size'=>$_smarty_tpl->tpl_vars['fbvStyles']->value['size']['MEDIUM']),$_smarty_tpl ) );?>
+
+					<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['fbvElement'][0], array( array('type'=>"hidden",'id'=>"indexing-".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."-label",'name'=>"indexing[".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."][label]",'value'=>$_smarty_tpl->tpl_vars['rowLabel']->value),$_smarty_tpl ) );?>
+
+					<?php if ($_smarty_tpl->tpl_vars['rowLabel']->value && !$_smarty_tpl->tpl_vars['indexingOptions']->value[$_smarty_tpl->tpl_vars['rowId']->value]) {?>
+						<p class="nusantara-indexingRow__note"><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['rowLabel']->value ));?>
+</p>
+					<?php }?>
+				</div>
+			<?php
+}
+}
+?>
+		</div>
 	<?php $_block_repeat=false;
-echo $_block_plugin3(array('title'=>"plugins.generic.nusantarajournalmodal.settings.header.indexing"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
+echo $_block_plugin3(array('title'=>"plugins.generic.nusantarajournalmodal.settings.header.indexing",'description'=>"plugins.generic.nusantarajournalmodal.settings.indexing.description.dropdown"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 

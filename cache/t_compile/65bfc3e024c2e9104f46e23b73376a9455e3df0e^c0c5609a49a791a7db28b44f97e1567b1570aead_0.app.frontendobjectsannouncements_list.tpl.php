@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 02:26:11
+/* Smarty version 4.5.5, created on 2025-10-30 16:52:00
   from 'app:frontendobjectsannouncements_list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_69026a539e9025_54659194',
+  'unifunc' => 'content_69033540f1eaf0_35176673',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/objects/announcement_summary.tpl' => 1,
   ),
 ),false)) {
-function content_69026a539e9025_54659194 (Smarty_Internal_Template $_smarty_tpl) {
+function content_69033540f1eaf0_35176673 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['numAnnouncements']->value && call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'count' ][ 0 ], array( $_smarty_tpl->tpl_vars['announcements']->value ))) {?>
     <section class="cmp_announcements highlight_first">
         <a id="homepageAnnouncements"></a>

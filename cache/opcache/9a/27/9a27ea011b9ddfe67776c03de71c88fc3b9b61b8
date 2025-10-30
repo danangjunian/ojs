@@ -1,4 +1,4 @@
-1793301346a:3:{s:6:"domain";N;s:12:"plural-forms";s:26:"nplurals=2; plural=n != 1;";s:8:"messages";a:1:{s:0:"";a:69:{s:35:"emails.passwordResetConfirm.subject";s:27:"Password Reset Confirmation";s:32:"emails.passwordResetConfirm.body";s:335:"We have received a request to reset your password for the {$siteTitle} web site.<br />
+1793353827a:3:{s:6:"domain";N;s:12:"plural-forms";s:26:"nplurals=2; plural=n != 1;";s:8:"messages";a:1:{s:0:"";a:69:{s:35:"emails.passwordResetConfirm.subject";s:27:"Password Reset Confirmation";s:32:"emails.passwordResetConfirm.body";s:335:"We have received a request to reset your password for the {$siteTitle} web site.<br />
 <br />
 If you did not make this request, please ignore this email and your password will not be changed. If you wish to reset your password, click on the below URL.<br />
 <br />

@@ -377,6 +377,18 @@
   color: rgba(8, 31, 48, 0.78);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  text-decoration: none;
+  cursor: default;
+  transition: opacity 0.2s ease;
+}
+
+.nusantara-chip--link {
+  cursor: pointer;
+}
+
+.nusantara-chip--link:hover,
+.nusantara-chip--link:focus {
+  opacity: 0.85;
 }
 
 .nusantara-chip--blue {

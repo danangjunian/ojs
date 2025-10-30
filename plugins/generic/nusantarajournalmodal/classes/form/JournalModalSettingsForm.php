@@ -10,12 +10,12 @@
 
 namespace APP\plugins\generic\nusantarajournalmodal\classes\form;
 
+use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorCSRF;
 use PKP\form\validation\FormValidatorPost;
 use PKP\form\validation\FormValidatorUrl;
-use PKP\form\validation\FormValidatorCSRF;
-use APP\template\TemplateManager;
 
 class JournalModalSettingsForm extends Form
 {
@@ -24,6 +24,9 @@ class JournalModalSettingsForm extends Form
 
     /** @var int */
     protected int $contextId;
+
+    /** @var array<int,array<string,string|null>> */
+    protected array $indexingRows = [];
 
     public function __construct($plugin, int $contextId)
     {
@@ -45,7 +48,8 @@ class JournalModalSettingsForm extends Form
         $this->setData('editorInChief', $this->plugin->getSetting($this->contextId, 'editorInChief'));
         $this->setData('issn', $this->plugin->getSetting($this->contextId, 'issn'));
         $this->setData('frequency', $this->plugin->getSetting($this->contextId, 'frequency'));
-        $this->setData('indexing', $this->plugin->getSetting($this->contextId, 'indexing'));
+        $this->indexingRows = $this->normalizeIndexingRows($this->plugin->getSetting($this->contextId, 'indexing'), false);
+        $this->setData('indexing', $this->indexingRows);
         $this->setData('doi', $this->plugin->getSetting($this->contextId, 'doi'));
         $this->setData('license', $this->plugin->getSetting($this->contextId, 'license'));
         $this->setData('primaryLabel', $this->plugin->getSetting($this->contextId, 'primaryLabel'));
@@ -70,6 +74,9 @@ class JournalModalSettingsForm extends Form
             'secondaryLabel',
             'secondaryUrl',
         ]);
+
+        $this->indexingRows = $this->normalizeIndexingRows($this->getData('indexing'), true);
+        $this->setData('indexing', $this->indexingRows);
     }
 
     public function execute(...$functionArgs): void
@@ -79,7 +86,6 @@ class JournalModalSettingsForm extends Form
             'eyebrowLabel',
             'issn',
             'frequency',
-            'indexing',
             'doi',
             'license',
             'primaryLabel',
@@ -99,16 +105,185 @@ class JournalModalSettingsForm extends Form
             $this->plugin->updateSetting($this->contextId, $field, $value);
         }
 
+        $indexingSetting = $this->prepareIndexingSettingForStorage($this->indexingRows);
+        $this->plugin->updateSetting($this->contextId, 'indexing', $indexingSetting, 'object');
+
         parent::execute(...$functionArgs);
     }
 
     public function fetch($request, $template = null, $display = false): string
     {
+        $rows = $this->indexingRows ?: $this->normalizeIndexingRows($this->plugin->getSetting($this->contextId, 'indexing'), false);
+        $options = $this->plugin->getIndexingOptions();
+        $selectOptions = [];
+        foreach ($options as $value => $meta) {
+            $selectOptions[$value] = $meta['label'];
+        }
+        foreach ($rows as $row) {
+            $id = $row['id'] ?? '';
+            $label = $row['label'] ?? null;
+            if ($id && $label && !isset($selectOptions[$id])) {
+                $selectOptions[$id] = $label;
+            }
+        }
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'pluginName' => $this->plugin->getName(),
+            'indexingRows' => $rows,
+            'indexingRowCount' => max(count($rows) + 2, 6),
+            'indexingOptions' => $selectOptions,
         ]);
 
         return parent::fetch($request, $template, $display);
+    }
+
+    /**
+     * Normalisasi data indeksasi dari database maupun input form.
+     *
+     * @param mixed $source
+     * @param bool $fromInput
+     * @return array<int,array<string,string|null>>
+     */
+    protected function normalizeIndexingRows($source, bool $fromInput): array
+    {
+        $rows = [];
+        $options = $this->plugin->getIndexingOptions();
+
+        if ($fromInput) {
+            if (!is_array($source)) {
+                return [];
+            }
+            foreach ($source as $entry) {
+                if (!is_array($entry)) {
+                    continue;
+                }
+                $id = isset($entry['id']) ? trim((string) $entry['id']) : '';
+                $url = isset($entry['url']) ? trim((string) $entry['url']) : '';
+                $labelInput = isset($entry['label']) ? trim((string) $entry['label']) : null;
+
+                if ($id === '' && $url === '') {
+                    continue;
+                }
+
+                if ($id !== '' && isset($options[$id])) {
+                    $label = $options[$id]['label'];
+                } else {
+                    $label = $labelInput ?: ($id ?: null);
+                }
+
+                if (!$label) {
+                    continue;
+                }
+
+                $rows[] = [
+                    'id' => $id,
+                    'label' => $label,
+                    'url' => $url !== '' ? $url : null,
+                ];
+            }
+
+            return $rows;
+        }
+
+        if (is_array($source)) {
+            foreach ($source as $entry) {
+                if (!is_array($entry)) {
+                    continue;
+                }
+                $id = isset($entry['id']) ? trim((string) $entry['id']) : '';
+                $label = isset($entry['label']) ? trim((string) $entry['label']) : null;
+                $url = isset($entry['url']) ? trim((string) $entry['url']) : '';
+
+                if ($id !== '' && isset($options[$id])) {
+                    $label = $options[$id]['label'];
+                } elseif (!$label) {
+                    $label = $id ?: null;
+                }
+
+                if ($id === '' && !$label && $url === '') {
+                    continue;
+                }
+
+                if (!$label) {
+                    continue;
+                }
+
+                $rows[] = [
+                    'id' => $id,
+                    'label' => $label,
+                    'url' => $url !== '' ? $url : null,
+                ];
+            }
+
+            return $rows;
+        }
+
+        if (is_string($source)) {
+            $lines = preg_split("/\r\n|\r|\n/", $source);
+            if (!$lines) {
+                return [];
+            }
+            foreach ($lines as $line) {
+                $label = trim($line);
+                if ($label === '') {
+                    continue;
+                }
+                $matchedId = '';
+                foreach ($options as $value => $meta) {
+                    if (strcasecmp($meta['label'], $label) === 0) {
+                        $matchedId = $value;
+                        break;
+                    }
+                }
+                if ($matchedId === '') {
+                    $matchedId = 'legacy:' . sha1($label);
+                }
+                $rows[] = [
+                    'id' => $matchedId,
+                    'label' => $label,
+                    'url' => null,
+                ];
+            }
+        }
+
+        return $rows;
+    }
+
+    /**
+     * Siapkan data indeksasi untuk disimpan ke database.
+     *
+     * @param array<int,array<string,string|null>> $rows
+     * @return array<int,array<string,string>>|null
+     */
+    protected function prepareIndexingSettingForStorage(array $rows): ?array
+    {
+        $prepared = [];
+        foreach ($rows as $row) {
+            $id = isset($row['id']) ? trim((string) $row['id']) : '';
+            $label = isset($row['label']) ? trim((string) $row['label']) : null;
+            $url = isset($row['url']) ? trim((string) $row['url']) : '';
+
+            if ($id === '' && !$label && $url === '') {
+                continue;
+            }
+
+            $entry = [];
+            if ($id !== '') {
+                $entry['id'] = $id;
+            }
+            if ($label) {
+                $entry['label'] = $label;
+            }
+            if ($url !== '') {
+                $entry['url'] = $url;
+            }
+
+            if ($entry) {
+                $prepared[] = $entry;
+            }
+        }
+
+        return $prepared ? $prepared : null;
     }
 }

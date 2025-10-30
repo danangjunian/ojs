@@ -70,3 +70,11 @@ msgid "plugins.generic.nusantarajournalmodal.validation.secondaryUrl"
 msgstr "Masukkan URL yang valid untuk tombol sekunder."
 msgid "plugins.generic.nusantarajournalmodal.settings.eyebrowLabel"
 msgstr "Judul pengantar (mis. Discover Our Journals)"
+msgid "plugins.generic.nusantarajournalmodal.settings.indexing.description.dropdown"
+msgstr "Pilih indeks dari daftar lalu isi URL (opsional). Kosongkan baris yang tidak digunakan."
+
+msgid "plugins.generic.nusantarajournalmodal.settings.indexing.option"
+msgstr "Pilih indeks"
+
+msgid "plugins.generic.nusantarajournalmodal.settings.indexing.url"
+msgstr "URL indeks"
