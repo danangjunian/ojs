@@ -1,4 +1,4 @@
-﻿body.nusantara-modal-open, body.nusantara-modal-open .pkp_structure_page.nusantara-shell {
+body.nusantara-modal-open, body.nusantara-modal-open .pkp_structure_page.nusantara-shell {
   overflow: hidden;
 }
 
@@ -35,7 +35,7 @@
 .nusantara-body a {
   
   text-decoration: none;
-  transition: var(--nusantara-transition);
+  transition: var(--nusantara-transition), transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nusantara-body a:hover:not(.nusantara-button),
@@ -145,7 +145,7 @@
   border: 1px solid rgba(15, 23, 42, 0.12);
   background: var(--nusantara-surface);
   cursor: pointer;
-  transition: var(--nusantara-transition);
+  transition: var(--nusantara-transition), transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 32px -24px rgba(14, 49, 76, 0.55);
@@ -243,7 +243,7 @@
   color: var(--nusantara-text);
   cursor: pointer;
   font-weight: 500;
-  transition: var(--nusantara-transition);
+  transition: var(--nusantara-transition), transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nusantara-header__searchToggle:hover,
@@ -432,7 +432,7 @@
   color: var(--nusantara-text);
   text-decoration: none;
   font-weight: 500;
-  transition: var(--nusantara-transition);
+  transition: var(--nusantara-transition), transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
 }
 
@@ -486,14 +486,14 @@
   gap: 0.75rem;
   padding: 0.6rem 0.95rem;
   border-radius: 12px;
-  transition: var(--nusantara-transition);
+  transition: var(--nusantara-transition), transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nusantara-nav__item > a::after {
-  content: "�";
+  content: "?";
   font-size: 0.9rem;
   color: rgba(15, 23, 42, 0.35);
-  transition: var(--nusantara-transition);
+  transition: var(--nusantara-transition), transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nusantara-nav__item > a:hover,
@@ -564,7 +564,7 @@
   border-radius: var(--nusantara-radius-sm);
   border: 1px solid var(--nusantara-border);
   font-size: 0.95rem;
-  transition: var(--nusantara-transition);
+  transition: var(--nusantara-transition), transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nusantara-searchPanel__input:focus {
@@ -585,7 +585,7 @@
   background: var(--nusantara-accent);
   color: #fff;
   cursor: pointer;
-  transition: var(--nusantara-transition);
+  transition: var(--nusantara-transition), transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nusantara-searchPanel__submit:hover,
@@ -666,7 +666,7 @@
   font-size: 0.95rem;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: var(--nusantara-transition);
+  transition: var(--nusantara-transition), transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nusantara-button--filled {
@@ -679,12 +679,15 @@
 .nusantara-button--filled:focus {
   background: var(--nusantara-accent-dark);
   color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 24px 40px -25px rgba(8, 31, 48, 0.4);
 }
 
 .nusantara-button--ghost {
   background: #0b7285;
   border-color: rgba(255, 255, 255, 0.4);
   color: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .nusantara-button--ghost:hover,
@@ -692,6 +695,8 @@
   background: #0a6275;
   border-color: rgba(255, 255, 255, 0.6);
   color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 24px 40px -25px rgba(8, 31, 48, 0.35);
 }
 
 .nusantara-button--icon {
@@ -1121,4 +1126,5 @@
     aspect-ratio: 4 / 3;
   }
 }
+
 
