@@ -127,12 +127,45 @@ class JournalModalSettingsForm extends Form
             }
         }
 
+        $rowCount = max(count($rows) + 2, 6);
+        if ($rowCount > count($rows)) {
+            for ($i = count($rows); $i < $rowCount; $i++) {
+                $rows[$i] = [];
+            }
+        }
+
+        $usedCounts = [];
+        foreach ($rows as $row) {
+            $id = $row['id'] ?? '';
+            if ($id !== '' && isset($options[$id])) {
+                $usedCounts[$id] = ($usedCounts[$id] ?? 0) + 1;
+            }
+        }
+
+        $optionsPerRow = [];
+        for ($index = 0; $index < $rowCount; $index++) {
+            $currentId = $rows[$index]['id'] ?? '';
+            $optionsForRow = [];
+            foreach ($options as $value => $meta) {
+                $count = $usedCounts[$value] ?? 0;
+                if ($value === $currentId && $currentId !== '') {
+                    $count--;
+                }
+                if ($count > 0) {
+                    continue;
+                }
+                $optionsForRow[$value] = $meta['label'];
+            }
+            $optionsPerRow[$index] = $optionsForRow;
+        }
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'pluginName' => $this->plugin->getName(),
             'indexingRows' => $rows,
-            'indexingRowCount' => max(count($rows) + 2, 6),
+            'indexingRowCount' => $rowCount,
             'indexingOptions' => $selectOptions,
+            'indexingOptionsPerRow' => $optionsPerRow,
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -150,6 +183,8 @@ class JournalModalSettingsForm extends Form
         $rows = [];
         $options = $this->plugin->getIndexingOptions();
 
+        $seenIds = [];
+
         if ($fromInput) {
             if (!is_array($source)) {
                 return [];
@@ -166,6 +201,10 @@ class JournalModalSettingsForm extends Form
                     continue;
                 }
 
+                 if ($id !== '' && isset($seenIds[$id])) {
+                    continue;
+                }
+
                 if ($id !== '' && isset($options[$id])) {
                     $label = $options[$id]['label'];
                 } else {
@@ -174,6 +213,10 @@ class JournalModalSettingsForm extends Form
 
                 if (!$label) {
                     continue;
+                }
+
+                if ($id !== '') {
+                    $seenIds[$id] = true;
                 }
 
                 $rows[] = [
@@ -201,12 +244,16 @@ class JournalModalSettingsForm extends Form
                     $label = $id ?: null;
                 }
 
-                if ($id === '' && !$label && $url === '') {
+                if (!$label) {
                     continue;
                 }
 
-                if (!$label) {
+                if ($id !== '' && isset($seenIds[$id])) {
                     continue;
+                }
+
+                if ($id !== '') {
+                    $seenIds[$id] = true;
                 }
 
                 $rows[] = [
@@ -236,8 +283,14 @@ class JournalModalSettingsForm extends Form
                         break;
                     }
                 }
+                if ($matchedId !== '' && isset($seenIds[$matchedId])) {
+                    continue;
+                }
                 if ($matchedId === '') {
                     $matchedId = 'legacy:' . sha1($label);
+                }
+                if ($matchedId !== '') {
+                    $seenIds[$matchedId] = true;
                 }
                 $rows[] = [
                     'id' => $matchedId,
@@ -259,10 +312,15 @@ class JournalModalSettingsForm extends Form
     protected function prepareIndexingSettingForStorage(array $rows): ?array
     {
         $prepared = [];
+        $seenIds = [];
         foreach ($rows as $row) {
             $id = isset($row['id']) ? trim((string) $row['id']) : '';
             $label = isset($row['label']) ? trim((string) $row['label']) : null;
             $url = isset($row['url']) ? trim((string) $row['url']) : '';
+
+            if ($id !== '' && isset($seenIds[$id])) {
+                continue;
+            }
 
             if ($id === '' && !$label && $url === '') {
                 continue;
@@ -281,6 +339,9 @@ class JournalModalSettingsForm extends Form
 
             if ($entry) {
                 $prepared[] = $entry;
+                if ($id !== '') {
+                    $seenIds[$id] = true;
+                }
             }
         }
 

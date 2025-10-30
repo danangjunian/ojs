@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 17:38:07
+/* Smarty version 4.5.5, created on 2025-10-31 00:02:25
   from 'plugins-1-plugins-generic-nusantarajournalmodal-generic-nusantarajournalmodal:settingsForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6903400f224e46_05091113',
+  'unifunc' => 'content_69039a2154aec5_54257066',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '93651778311468bd4e642c58b2351569a0c6f972' => 
     array (
       0 => 'plugins-1-plugins-generic-nusantarajournalmodal-generic-nusantarajournalmodal:settingsForm.tpl',
-      1 => 1761817577,
+      1 => 1761843573,
       2 => 'plugins-1-plugins-generic-nusantarajournalmodal-generic-nusantarajournalmodal',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:controllers/notification/inPlaceNotification.tpl' => 1,
   ),
 ),false)) {
-function content_6903400f224e46_05091113 (Smarty_Internal_Template $_smarty_tpl) {
+function content_69039a2154aec5_54257066 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
 	$(function() {
@@ -104,8 +104,9 @@ for ($__section_row_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_ro
 				<?php $_smarty_tpl->_assignInScope('rowId', (($tmp = $_smarty_tpl->tpl_vars['rowData']->value['id'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp));?>
 				<?php $_smarty_tpl->_assignInScope('rowUrl', (($tmp = $_smarty_tpl->tpl_vars['rowData']->value['url'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp));?>
 				<?php $_smarty_tpl->_assignInScope('rowLabel', (($tmp = $_smarty_tpl->tpl_vars['rowData']->value['label'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp));?>
+				<?php $_smarty_tpl->_assignInScope('rowOptions', (($tmp = $_smarty_tpl->tpl_vars['indexingOptionsPerRow']->value[$_smarty_tpl->tpl_vars['rowIndex']->value] ?? null)===null||$tmp==='' ? $_smarty_tpl->tpl_vars['indexingOptions']->value ?? null : $tmp));?>
 				<div class="nusantara-indexingRow">
-					<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['fbvElement'][0], array( array('type'=>"select",'id'=>"indexing-".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."-id",'name'=>"indexing[".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."][id]",'label'=>"plugins.generic.nusantarajournalmodal.settings.indexing.option",'from'=>$_smarty_tpl->tpl_vars['indexingOptions']->value,'selected'=>$_smarty_tpl->tpl_vars['rowId']->value,'translate'=>false,'defaultValue'=>'','size'=>$_smarty_tpl->tpl_vars['fbvStyles']->value['size']['MEDIUM']),$_smarty_tpl ) );?>
+					<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['fbvElement'][0], array( array('type'=>"select",'id'=>"indexing-".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."-id",'name'=>"indexing[".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."][id]",'label'=>"plugins.generic.nusantarajournalmodal.settings.indexing.option",'from'=>$_smarty_tpl->tpl_vars['rowOptions']->value,'selected'=>$_smarty_tpl->tpl_vars['rowId']->value,'translate'=>false,'defaultValue'=>'','size'=>$_smarty_tpl->tpl_vars['fbvStyles']->value['size']['MEDIUM']),$_smarty_tpl ) );?>
 
 					<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['fbvElement'][0], array( array('type'=>"text",'id'=>"indexing-".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."-url",'name'=>"indexing[".((string)$_smarty_tpl->tpl_vars['rowIndex']->value)."][url]",'value'=>$_smarty_tpl->tpl_vars['rowUrl']->value,'label'=>"plugins.generic.nusantarajournalmodal.settings.indexing.url",'size'=>$_smarty_tpl->tpl_vars['fbvStyles']->value['size']['MEDIUM']),$_smarty_tpl ) );?>
 

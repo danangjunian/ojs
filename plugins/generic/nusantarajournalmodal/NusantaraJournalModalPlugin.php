@@ -171,12 +171,12 @@ class NusantaraJournalModalPlugin extends GenericPlugin
             'googleScholar' => [
                 'label' => 'Google Scholar',
                 'class' => $this->resolveBadgeClass('Google Scholar'),
-                'icon' => null,
+                'icon' => 'static/indexing/google-scholar.png',
             ],
             'garuda' => [
                 'label' => 'GARUDA',
                 'class' => $this->resolveBadgeClass('GARUDA'),
-                'icon' => null,
+                'icon' => 'static/indexing/garuda.png',
             ],
             'sinta1' => [
                 'label' => 'SINTA 1',

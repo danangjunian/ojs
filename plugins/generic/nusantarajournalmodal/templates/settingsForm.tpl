@@ -46,13 +46,14 @@
 				{assign var="rowId" value=$rowData.id|default:''}
 				{assign var="rowUrl" value=$rowData.url|default:''}
 				{assign var="rowLabel" value=$rowData.label|default:''}
+				{assign var="rowOptions" value=$indexingOptionsPerRow[$rowIndex]|default:$indexingOptions}
 				<div class="nusantara-indexingRow">
 					{fbvElement
 						type="select"
 						id="indexing-`$rowIndex`-id"
 						name="indexing[`$rowIndex`][id]"
 						label="plugins.generic.nusantarajournalmodal.settings.indexing.option"
-						from=$indexingOptions
+						from=$rowOptions
 						selected=$rowId
 						translate=false
 						defaultValue=""
