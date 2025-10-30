@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 02:20:18
+/* Smarty version 4.5.5, created on 2025-10-30 16:25:54
   from 'plugins-1-plugins-generic-nusantarajournalmodal-generic-nusantarajournalmodal:settingsForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_690268f2eb0da0_06905454',
+  'unifunc' => 'content_69032f225da2b2_82873702',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '93651778311468bd4e642c58b2351569a0c6f972' => 
     array (
       0 => 'plugins-1-plugins-generic-nusantarajournalmodal-generic-nusantarajournalmodal:settingsForm.tpl',
-      1 => 1761765558,
+      1 => 1761766457,
       2 => 'plugins-1-plugins-generic-nusantarajournalmodal-generic-nusantarajournalmodal',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:controllers/notification/inPlaceNotification.tpl' => 1,
   ),
 ),false)) {
-function content_690268f2eb0da0_06905454 (Smarty_Internal_Template $_smarty_tpl) {
+function content_69032f225da2b2_82873702 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
 	$(function() {
@@ -55,6 +55,8 @@ $_block_repeat=true;
 echo $_block_plugin2(array('title'=>"plugins.generic.nusantarajournalmodal.settings.header.journal"), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>
+		<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['fbvElement'][0], array( array('type'=>"text",'id'=>"eyebrowLabel",'name'=>"eyebrowLabel",'value'=>$_smarty_tpl->tpl_vars['eyebrowLabel']->value,'label'=>"plugins.generic.nusantarajournalmodal.settings.eyebrowLabel",'size'=>$_smarty_tpl->tpl_vars['fbvStyles']->value['size']['MEDIUM']),$_smarty_tpl ) );?>
+
 		<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['fbvElement'][0], array( array('type'=>"text",'id'=>"editorInChief",'name'=>"editorInChief",'value'=>$_smarty_tpl->tpl_vars['editorInChief']->value,'label'=>"plugins.generic.nusantarajournalmodal.settings.editor",'size'=>$_smarty_tpl->tpl_vars['fbvStyles']->value['size']['MEDIUM']),$_smarty_tpl ) );?>
 
 		<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['fbvElement'][0], array( array('type'=>"textarea",'id'=>"issn",'name'=>"issn",'value'=>$_smarty_tpl->tpl_vars['issn']->value,'label'=>"plugins.generic.nusantarajournalmodal.settings.issn",'size'=>$_smarty_tpl->tpl_vars['fbvStyles']->value['size']['MEDIUM']),$_smarty_tpl ) );?>

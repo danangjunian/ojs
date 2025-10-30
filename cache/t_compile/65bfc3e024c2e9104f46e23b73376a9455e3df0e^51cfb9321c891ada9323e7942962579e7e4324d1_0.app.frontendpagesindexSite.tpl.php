@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-30 02:36:48
+/* Smarty version 4.5.5, created on 2025-10-30 16:17:37
   from 'app:frontendpagesindexSite.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_69026cd09977d4_74975737',
+  'unifunc' => 'content_69032d318df410_73132095',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '51cfb9321c891ada9323e7942962579e7e4324d1' => 
     array (
       0 => 'app:frontendpagesindexSite.tpl',
-      1 => 1761766432,
+      1 => 1761815710,
       2 => 'app',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/footer.tpl' => 1,
   ),
 ),false)) {
-function content_69026cd09977d4_74975737 (Smarty_Internal_Template $_smarty_tpl) {
+function content_69032d318df410_73132095 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -264,13 +264,7 @@ echo $_smarty_tpl->tpl_vars['journal']->value->getId();?>
 												<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['name'] ));?>
 
 											</h3>
-											<?php if ($_smarty_tpl->tpl_vars['modalData']->value['description']) {?>
-												<p class="nusantara-journalModal__description">
-													<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( preg_replace('!<[^>]*?>!', ' ', (string) $_smarty_tpl->tpl_vars['modalData']->value['description']) ));?>
-
-												</p>
-											<?php }?>
-										</header>
+											</header>
 
 										<ul class="nusantara-journalModal__meta">
 											<?php if ($_smarty_tpl->tpl_vars['modalData']->value['editorInChief']) {?>
@@ -369,6 +363,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 <?php $_smarty_tpl->_subTemplateRender("app:frontend/components/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+
 
 
 

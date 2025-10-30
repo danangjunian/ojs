@@ -1,4 +1,4 @@
-﻿{**
+{**
  * Nusantara Theme - Beranda Portal
  * Mengganti tata letak default halaman portal/site.
  *}
@@ -177,12 +177,7 @@
 											<h3 class="nusantara-journalModal__title" id="{$modalId}-title">
 												{$modalData.name|escape}
 											</h3>
-											{if $modalData.description}
-												<p class="nusantara-journalModal__description">
-													{$modalData.description|strip_tags|escape}
-												</p>
-											{/if}
-										</header>
+											</header>
 
 										<ul class="nusantara-journalModal__meta">
 											{if $modalData.editorInChief}
@@ -253,6 +248,7 @@
 </div>
 
 {include file="frontend/components/footer.tpl"}
+
 
 
 
