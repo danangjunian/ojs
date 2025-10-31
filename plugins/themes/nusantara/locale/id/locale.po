@@ -20,6 +20,18 @@ msgstr "Masuk untuk mengelola naskah, memantau telaah, dan berkolaborasi dengan 
 msgid "plugins.themes.nusantara.auth.registerPrompt"
 msgstr "Belum punya akun? <a href=\"{$registerUrl}\">Daftar sekarang</a> untuk mulai mengirimkan naskah."
 
+msgid "plugins.themes.nusantara.search.subtitle"
+msgstr "Saring jurnal, artikel, dan penulis dengan mudah melalui alat pencarian yang lebih intuitif."
+
+msgid "plugins.themes.nusantara.search.placeholder"
+msgstr "Cari jurnal, artikel, atau penulis"
+
+msgid "plugins.themes.nusantara.search.authorsPlaceholder"
+msgstr "Filter berdasarkan nama penulis"
+
+msgid "plugins.themes.nusantara.search.chooseJournal"
+msgstr "Pilih jurnal (opsional)"
+
 msgid "plugins.themes.nusantara.site.journalShowcase"
 msgstr "Jelajahi Jurnal Kami"
 

@@ -146,6 +146,9 @@ class NusantaraThemePlugin extends ThemePlugin
         $this->addStyle('nusantara-auth', 'styles/auth.css', [
             'priority' => TemplateManager::STYLE_SEQUENCE_LATE,
         ]);
+        $this->addStyle('nusantara-search', 'styles/search.css', [
+            'priority' => TemplateManager::STYLE_SEQUENCE_LATE,
+        ]);
 
         $accentColor = $this->getOption('accentColor') ?: '#0B7285';
         $this->addStyle('nusantara-accent', ':root { --nusantara-accent: ' . $accentColor . '; }', [

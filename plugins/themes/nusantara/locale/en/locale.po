@@ -20,6 +20,18 @@ msgstr "Sign in to manage submissions, track reviews, and join your editorial wo
 msgid "plugins.themes.nusantara.auth.registerPrompt"
 msgstr "Need an account? <a href=\"{$registerUrl}\">Register now</a> to start submitting."
 
+msgid "plugins.themes.nusantara.search.subtitle"
+msgstr "Filter journals, articles, and authors effortlessly with refined search tools."
+
+msgid "plugins.themes.nusantara.search.placeholder"
+msgstr "Search journals, articles, or authors"
+
+msgid "plugins.themes.nusantara.search.authorsPlaceholder"
+msgstr "Filter by author name"
+
+msgid "plugins.themes.nusantara.search.chooseJournal"
+msgstr "Choose journal (optional)"
+
 msgid "plugins.themes.nusantara.site.journalShowcase"
 msgstr "Discover Our Journals"
 

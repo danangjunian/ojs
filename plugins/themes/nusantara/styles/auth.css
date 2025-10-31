@@ -165,7 +165,7 @@
 }
 
 .nusantara-auth__input {
-  width: 100%;
+ 
   border-radius: 16px;
   border: 1px solid rgba(8, 31, 48, 0.12);
   background: rgba(249, 250, 251, 0.9);
@@ -241,10 +241,27 @@
 
   .nusantara-auth__container {
     grid-template-columns: 1fr;
+    gap: 1.8rem;
   }
 
   .nusantara-auth__intro {
     text-align: center;
+    align-items: center;
+    padding: 2.2rem;
+    border-radius: 24px;
+  }
+
+  .nusantara-auth__card {
+    padding: 2.1rem;
+    border-radius: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nusantara-auth__intro {
+    text-align: left;
+    align-items: flex-start;
+    gap: 1.1rem;
   }
 }
 
@@ -258,10 +275,37 @@
   }
 
   .nusantara-auth__actions {
-    flex-direction: column;
+    
   }
 
   .nusantara-auth__actions .nusantara-button {
     width: 100%;
+    border-radius: 18px;
+    padding: 0.85rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nusantara-auth__title {
+    font-size: 1.9rem;
+  }
+
+  .nusantara-auth__subtitle,
+  .nusantara-auth__registerHint {
+    font-size: 0.92rem;
+  }
+
+  .nusantara-auth__card {
+    padding: 1.6rem;
+  }
+
+  .nusantara-auth__input {
+    padding: 0.75rem 1rem;
+    font-size: 0.96rem;
+  }
+
+  .nusantara-auth__checkbox {
+    font-size: 0.9rem;
   }
 }

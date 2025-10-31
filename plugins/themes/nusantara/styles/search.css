@@ -1,0 +1,356 @@
+.nusantara-search {
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 6vw, 4rem);
+  background: linear-gradient(135deg, rgba(11, 114, 133, 0.08), rgba(255, 255, 255, 0.95));
+}
+
+.nusantara-search__container {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.nusantara-search__panel {
+  background: #ffffff;
+  padding: clamp(2rem, 4vw, 2.5rem);
+  border-radius: 28px;
+  box-shadow: 0 38px 90px -70px rgba(8, 31, 48, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nusantara-search__title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: rgba(8, 31, 48, 0.95);
+}
+
+.nusantara-search__subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: rgba(8, 31, 48, 0.65);
+  line-height: 1.6;
+}
+
+.nusantara-search__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.nusantara-search__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.nusantara-search__label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: rgba(8, 31, 48, 0.6);
+}
+
+.nusantara-search__input,
+.nusantara-search__select {
+  border-radius: 16px;
+  border: 1px solid rgba(8, 31, 48, 0.15);
+  background: rgba(249, 250, 251, 0.92);
+  padding: 0.85rem 1.1rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.nusantara-search__input:focus,
+.nusantara-search__select:focus {
+  border-color: var(--nusantara-accent);
+  box-shadow: 0 0 0 4px rgba(11, 114, 133, 0.16);
+  outline: none;
+  background: #fff;
+}
+
+.nusantara-search__select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--nusantara-accent) 50%), linear-gradient(135deg, var(--nusantara-accent) 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1.1rem + 2px), calc(100% - 15px) calc(1.1rem + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.nusantara-search__advanced {
+  border-radius: 20px;
+  border: 1px solid rgba(8, 31, 48, 0.1);
+  background: rgba(249, 250, 251, 0.65);
+  padding: 1rem 1.3rem;
+}
+
+.nusantara-search__advanced summary {
+  font-weight: 600;
+  color: rgba(8, 31, 48, 0.78);
+  cursor: pointer;
+  outline: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  position: relative;
+  padding-right: 1.4rem;
+  font-size: 0.95rem;
+}
+
+.nusantara-search__advanced summary::-webkit-details-marker {
+  display: none;
+}
+
+.nusantara-search__advanced summary::after {
+  content: "";
+  position: absolute;
+  right: 0.2rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 2px solid rgba(8, 31, 48, 0.55);
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.nusantara-search__advanced[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+.nusantara-search__advanced[open] {
+  background: rgba(249, 250, 251, 0.9);
+}
+
+.nusantara-search__advanced[open] summary {
+  margin-bottom: 1rem;
+}
+
+.nusantara-search__group {
+  display: grid;
+  gap: 1rem;
+}
+
+.nusantara-search__group--dates {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.nusantara-search__date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.nusantara-search__advanced fieldset {
+  border-radius: 18px;
+  border: 1px solid rgba(11, 114, 133, 0.18);
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.nusantara-search__advanced fieldset legend {
+  flex: 0 0 100%;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: rgba(8, 31, 48, 0.6);
+  padding: 0 0.2rem;
+}
+
+.nusantara-search__advanced fieldset label {
+  flex: 0 0 100%;
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(8, 31, 48, 0.55);
+  font-weight: 600;
+}
+
+.nusantara-search__advanced fieldset label:first-of-type {
+  margin-top: 0;
+}
+
+.nusantara-search__advanced fieldset select {
+  flex: 0 0 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(8, 31, 48, 0.18);
+  padding: 0.55rem 0.75rem;
+  background: rgba(249, 250, 251, 0.92);
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.nusantara-search__advanced fieldset select:focus {
+  border-color: var(--nusantara-accent);
+  box-shadow: 0 0 0 3px rgba(11, 114, 133, 0.16);
+  outline: none;
+  background: #fff;
+}
+
+.nusantara-search__advanced fieldset:hover {
+  box-shadow: 0 18px 40px -28px rgba(8, 31, 48, 0.22);
+  border-color: rgba(11, 114, 133, 0.25);
+}
+
+.nusantara-search__actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nusantara-search__results {
+  background: #ffffff;
+  border-radius: 30px;
+  padding: clamp(2rem, 4vw, 3rem);
+  box-shadow: 0 42px 120px -70px rgba(8, 31, 48, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nusantara-search__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.nusantara-search__header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.nusantara-search__count {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(8, 31, 48, 0.6);
+}
+
+.nusantara-search__empty {
+  border-radius: 24px;
+  padding: 2.2rem;
+  text-align: center;
+  background: rgba(249, 250, 251, 0.75);
+  color: rgba(8, 31, 48, 0.6);
+  font-size: 1rem;
+}
+
+.nusantara-search__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.nusantara-search__item {
+  background: rgba(249, 250, 251, 0.75);
+  border-radius: 22px;
+  padding: 1.4rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nusantara-search__item:hover,
+.nusantara-search__item:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 70px -50px rgba(8, 31, 48, 0.45);
+}
+
+.nusantara-search__pagination {
+  margin-top: 1rem;
+}
+
+@media (max-width: 960px) {
+  .nusantara-search__container {
+    grid-template-columns: 1fr;
+  }
+
+  .nusantara-search__panel {
+    position: sticky;
+    top: 1rem;
+    gap: 1.2rem;
+  }
+
+  .nusantara-search__results {
+    padding: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nusantara-search__panel {
+    position: static;
+  }
+
+  .nusantara-search__actions {
+    justify-content: stretch;
+  }
+
+  .nusantara-search__actions .nusantara-button {
+    width: 100%;
+  }
+
+  .nusantara-search__advanced fieldset {
+    gap: 0.55rem 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .nusantara-search {
+    padding: 1.5rem;
+    overflow: hidden;
+  }
+
+  .nusantara-search__panel {
+    position: static;
+    padding: 0.1rem;
+    border-radius: 22px;
+    
+  }
+
+  .nusantara-search__results {
+    padding: 1.8rem;
+    border-radius: 24px;
+  
+  }
+
+  .nusantara-search__title {
+    font-size: 1.8rem;
+  }
+
+  .nusantara-search__item {
+    padding: 1.1rem;
+  }
+
+  .nusantara-search__subtitle {
+    font-size: 0.95rem;
+  }
+
+  .nusantara-search__form,
+  .nusantara-search__advanced,
+  .nusantara-search__field,
+  .nusantara-search__input,
+  .nusantara-search__select,
+  .nusantara-search__advanced fieldset,
+  .nusantara-search__advanced fieldset select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nusantara-search__group--dates {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+}
