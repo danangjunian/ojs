@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-31 01:12:50
+/* Smarty version 4.5.5, created on 2025-10-31 12:23:31
   from 'app:controllersgridgridBodyPart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6903aaa27351d9_89119901',
+  'unifunc' => 'content_690447d3c855d0_35533483',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6903aaa27351d9_89119901 (Smarty_Internal_Template $_smarty_tpl) {
+function content_690447d3c855d0_35533483 (Smarty_Internal_Template $_smarty_tpl) {
 ?><tbody>
 	<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['rows']->value, 'row');

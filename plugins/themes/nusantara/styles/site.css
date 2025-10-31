@@ -82,7 +82,7 @@
 
 .nusantara-journalPoster {
   position: relative;
-  min-height: 450px;
+  min-height: 400px;
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 42px 120px -65px rgba(9, 22, 39, 0.58);
@@ -151,7 +151,7 @@
 
 .nusantara-journalPoster__title {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   line-height: 1.32;
 }
 
@@ -316,7 +316,7 @@
 
 .nusantara-journalModal__title {
   margin: 0;
-  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  font-size: clamp(1.3rem, 1vw, 1rem);
   line-height: 1.2;
   font-weight: 700;
 }
@@ -566,7 +566,7 @@ body.nusantara-modal-open .nusantara-journalPoster__overlay {
   }
 
   .nusantara-journalPoster {
-    min-height: 450px;
+    min-height: 400px;
   }
 }
 
