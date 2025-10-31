@@ -43,7 +43,7 @@ msgid "plugins.generic.nusantarajournalmodal.settings.doi"
 msgstr "Current issue DOI or identifier"
 
 msgid "plugins.generic.nusantarajournalmodal.settings.license"
-msgstr "License & APC information"
+msgstr "License & APC"
 
 msgid "plugins.generic.nusantarajournalmodal.settings.primaryLabel"
 msgstr "Primary action label"

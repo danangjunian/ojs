@@ -170,32 +170,45 @@
 									<div class="nusantara-journalModal__body">
 										<header class="nusantara-journalModal__header">
 											<h3 class="nusantara-journalModal__title" id="{$modalId}-title">
-												{$modalData.name|escape}
+												<i class="fa-solid fa-book-open nusantara-modalIcon" aria-hidden="true"></i>
+												<span>{$modalData.name|escape}</span>
 											</h3>
 											</header>
 
 										<ul class="nusantara-journalModal__meta">
 											{if $modalData.editorInChief}
 												<li>
-													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.editor"}</span>
+													<div class="nusantara-journalModal__metaLabel">
+														<i class="fa-solid fa-user-pen" aria-hidden="true"></i>
+														<span>{translate key="plugins.generic.nusantarajournalmodal.settings.editor"}</span>
+													</div>
 													<strong>{$modalData.editorInChief|escape}</strong>
 												</li>
 											{/if}
 											{if $modalData.issn}
 												<li>
-													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.issn"}</span>
+													<div class="nusantara-journalModal__metaLabel">
+														<i class="fa-solid fa-barcode" aria-hidden="true"></i>
+														<span>{translate key="plugins.generic.nusantarajournalmodal.settings.issn"}</span>
+													</div>
 													<strong>{$modalData.issn|escape}</strong>
 												</li>
 											{/if}
 											{if $modalData.frequency}
 												<li>
-													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.frequency"}</span>
+													<div class="nusantara-journalModal__metaLabel">
+														<i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+														<span>{translate key="plugins.generic.nusantarajournalmodal.settings.frequency"}</span>
+													</div>
 													<strong>{$modalData.frequency|escape}</strong>
 												</li>
 											{/if}
 											{if $modalData.license}
 												<li>
-													<span>{translate key="plugins.generic.nusantarajournalmodal.settings.license"}</span>
+													<div class="nusantara-journalModal__metaLabel">
+														<i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+														<span>{translate key="plugins.generic.nusantarajournalmodal.settings.license"}</span>
+													</div>
 													<strong>{$modalData.license|escape}</strong>
 												</li>
 											{/if}
@@ -233,16 +246,19 @@
 										<div class="nusantara-journalModal__actions">
 											{if $modalData.primaryLabel && $modalData.primaryUrl}
 												<a class="nusantara-button nusantara-button--filled" href="{$modalData.primaryUrl|escape}" target="_blank" rel="noopener">
-													{$modalData.primaryLabel|escape}
+													<i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+													<span>{$modalData.primaryLabel|escape}</span>
 												</a>
 											{/if}
 											{if $modalData.secondaryLabel && $modalData.secondaryUrl}
 												<a class="nusantara-button nusantara-button--ghost" href="{$modalData.secondaryUrl|escape}" target="_blank" rel="noopener">
-													{$modalData.secondaryLabel|escape}
+													<i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+													<span>{$modalData.secondaryLabel|escape}</span>
 												</a>
 											{/if}
 											<a class="nusantara-button nusantara-button--text" href="{$journalUrl|escape}">
-												{translate key="plugins.themes.nusantara.site.visitJournal"}
+												<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+												<span>{translate key="plugins.themes.nusantara.site.visitJournal"}</span>
 											</a>
 										</div>
 									</div>

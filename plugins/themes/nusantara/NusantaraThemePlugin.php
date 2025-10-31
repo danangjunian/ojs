@@ -130,6 +130,9 @@ class NusantaraThemePlugin extends ThemePlugin
         $this->addStyle('nusantara-fonts', 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap', [
             'baseUrl' => '',
         ]);
+        $this->addStyle('nusantara-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', [
+            'baseUrl' => '',
+        ]);
         $this->addStyle('nusantara-base', 'styles/base.css');
         $this->addStyle('nusantara-site', 'styles/site.css', [
             'priority' => TemplateManager::STYLE_SEQUENCE_LATE,

@@ -319,6 +319,14 @@
   font-size: clamp(1.3rem, 1vw, 1rem);
   line-height: 1.2;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nusantara-journalModal__title i {
+  font-size: 1.05em;
+  color: var(--nusantara-accent);
 }
 
 .nusantara-journalModal__description {
@@ -343,6 +351,17 @@
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+}
+
+.nusantara-journalModal__metaLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nusantara-journalModal__metaLabel i {
+  font-size: 0.95rem;
+  color: var(--nusantara-accent);
 }
 
 .nusantara-journalModal__meta span {
@@ -454,7 +473,7 @@
   margin-top: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 0.5rem;
 }
 
 .nusantara-button--text {

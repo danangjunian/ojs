@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-31 12:11:27
+/* Smarty version 4.5.5, created on 2025-10-31 13:17:00
   from 'app:frontendpagesindexSite.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_690444ff372c06_22926235',
+  'unifunc' => 'content_6904545c2e38c0_15179089',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '51cfb9321c891ada9323e7942962579e7e4324d1' => 
     array (
       0 => 'app:frontendpagesindexSite.tpl',
-      1 => 1761887445,
+      1 => 1761890966,
       2 => 'app',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/footer.tpl' => 1,
   ),
 ),false)) {
-function content_690444ff372c06_22926235 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6904545c2e38c0_15179089 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -254,40 +254,53 @@ echo $_smarty_tpl->tpl_vars['journal']->value->getId();?>
 										<header class="nusantara-journalModal__header">
 											<h3 class="nusantara-journalModal__title" id="<?php echo $_smarty_tpl->tpl_vars['modalId']->value;?>
 -title">
-												<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['name'] ));?>
-
+												<i class="fa-solid fa-book-open nusantara-modalIcon" aria-hidden="true"></i>
+												<span><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['name'] ));?>
+</span>
 											</h3>
 											</header>
 
 										<ul class="nusantara-journalModal__meta">
 											<?php if ($_smarty_tpl->tpl_vars['modalData']->value['editorInChief']) {?>
 												<li>
-													<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.generic.nusantarajournalmodal.settings.editor"),$_smarty_tpl ) );?>
+													<div class="nusantara-journalModal__metaLabel">
+														<i class="fa-solid fa-user-pen" aria-hidden="true"></i>
+														<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.generic.nusantarajournalmodal.settings.editor"),$_smarty_tpl ) );?>
 </span>
+													</div>
 													<strong><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['editorInChief'] ));?>
 </strong>
 												</li>
 											<?php }?>
 											<?php if ($_smarty_tpl->tpl_vars['modalData']->value['issn']) {?>
 												<li>
-													<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.generic.nusantarajournalmodal.settings.issn"),$_smarty_tpl ) );?>
+													<div class="nusantara-journalModal__metaLabel">
+														<i class="fa-solid fa-barcode" aria-hidden="true"></i>
+														<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.generic.nusantarajournalmodal.settings.issn"),$_smarty_tpl ) );?>
 </span>
+													</div>
 													<strong><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['issn'] ));?>
 </strong>
 												</li>
 											<?php }?>
 											<?php if ($_smarty_tpl->tpl_vars['modalData']->value['frequency']) {?>
 												<li>
-													<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.generic.nusantarajournalmodal.settings.frequency"),$_smarty_tpl ) );?>
+													<div class="nusantara-journalModal__metaLabel">
+														<i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+														<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.generic.nusantarajournalmodal.settings.frequency"),$_smarty_tpl ) );?>
 </span>
+													</div>
 													<strong><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['frequency'] ));?>
 </strong>
 												</li>
 											<?php }?>
 											<?php if ($_smarty_tpl->tpl_vars['modalData']->value['license']) {?>
 												<li>
-													<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.generic.nusantarajournalmodal.settings.license"),$_smarty_tpl ) );?>
+													<div class="nusantara-journalModal__metaLabel">
+														<i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+														<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.generic.nusantarajournalmodal.settings.license"),$_smarty_tpl ) );?>
 </span>
+													</div>
 													<strong><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['license'] ));?>
 </strong>
 												</li>
@@ -346,21 +359,24 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 											<?php if ($_smarty_tpl->tpl_vars['modalData']->value['primaryLabel'] && $_smarty_tpl->tpl_vars['modalData']->value['primaryUrl']) {?>
 												<a class="nusantara-button nusantara-button--filled" href="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['primaryUrl'] ));?>
 " target="_blank" rel="noopener">
-													<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['primaryLabel'] ));?>
-
+													<i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+													<span><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['primaryLabel'] ));?>
+</span>
 												</a>
 											<?php }?>
 											<?php if ($_smarty_tpl->tpl_vars['modalData']->value['secondaryLabel'] && $_smarty_tpl->tpl_vars['modalData']->value['secondaryUrl']) {?>
 												<a class="nusantara-button nusantara-button--ghost" href="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['secondaryUrl'] ));?>
 " target="_blank" rel="noopener">
-													<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['secondaryLabel'] ));?>
-
+													<i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+													<span><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['modalData']->value['secondaryLabel'] ));?>
+</span>
 												</a>
 											<?php }?>
 											<a class="nusantara-button nusantara-button--text" href="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['journalUrl']->value ));?>
 ">
-												<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.themes.nusantara.site.visitJournal"),$_smarty_tpl ) );?>
-
+												<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+												<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.themes.nusantara.site.visitJournal"),$_smarty_tpl ) );?>
+</span>
 											</a>
 										</div>
 									</div>
