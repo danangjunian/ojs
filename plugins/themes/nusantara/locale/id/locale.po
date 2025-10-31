@@ -14,6 +14,12 @@ msgstr "Pembaca global"
 msgid "plugins.themes.nusantara.metrics.articlesPublished"
 msgstr "Artikel terbit"
 
+msgid "plugins.themes.nusantara.auth.subtitle"
+msgstr "Masuk untuk mengelola naskah, memantau telaah, dan berkolaborasi dengan tim editorial."
+
+msgid "plugins.themes.nusantara.auth.registerPrompt"
+msgstr "Belum punya akun? <a href=\"{$registerUrl}\">Daftar sekarang</a> untuk mulai mengirimkan naskah."
+
 msgid "plugins.themes.nusantara.site.journalShowcase"
 msgstr "Jelajahi Jurnal Kami"
 

@@ -14,6 +14,12 @@ msgstr "Global readership"
 msgid "plugins.themes.nusantara.metrics.articlesPublished"
 msgstr "Articles Published"
 
+msgid "plugins.themes.nusantara.auth.subtitle"
+msgstr "Sign in to manage submissions, track reviews, and join your editorial workspace."
+
+msgid "plugins.themes.nusantara.auth.registerPrompt"
+msgstr "Need an account? <a href=\"{$registerUrl}\">Register now</a> to start submitting."
+
 msgid "plugins.themes.nusantara.site.journalShowcase"
 msgstr "Discover Our Journals"
 

@@ -1,0 +1,267 @@
+.nusantara-auth {
+  min-height: min(780px, calc(100vh - 120px));
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+  background: radial-gradient(140% 120% at 0% 0%, rgba(11, 114, 133, 0.12) 0%, rgba(255, 255, 255, 0.96) 65%);
+  display: flex;
+  align-items: center;
+}
+
+.nusantara-auth__container {
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 3rem);
+}
+
+.nusantara-auth__intro {
+  background: linear-gradient(160deg, rgba(8, 48, 66, 0.92), rgba(8, 48, 66, 0.75));
+  color: #ecfeff;
+  padding: clamp(2.4rem, 4vw, 3rem);
+  border-radius: 28px;
+  box-shadow: 0 32px 80px -60px rgba(8, 31, 48, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.nusantara-auth__eyebrow {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.nusantara-auth__title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.nusantara-auth__subtitle {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+.nusantara-auth__registerHint {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.nusantara-auth__registerHint a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.nusantara-auth__card {
+  background: #ffffff;
+  border-radius: 30px;
+  padding: clamp(2.2rem, 4vw, 3rem);
+  box-shadow: 0 46px 110px -70px rgba(8, 31, 48, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nusantara-auth__breadcrumbs .cmp_breadcrumbs {
+  margin: 0;
+}
+
+.nusantara-auth__breadcrumbs .cmp_breadcrumbs ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(8, 31, 48, 0.5);
+}
+
+.nusantara-auth__breadcrumbs .cmp_breadcrumbs li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nusantara-auth__breadcrumbs .cmp_breadcrumbs a {
+  color: var(--nusantara-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nusantara-auth__breadcrumbs .cmp_breadcrumbs a:hover,
+.nusantara-auth__breadcrumbs .cmp_breadcrumbs a:focus {
+  opacity: 0.75;
+}
+
+.nusantara-auth__breadcrumbs .separator {
+  color: rgba(8, 31, 48, 0.25);
+}
+
+.nusantara-auth__breadcrumbs .current span {
+  color: rgba(8, 31, 48, 0.7);
+  font-weight: 600;
+}
+
+.nusantara-auth__alert {
+  border-radius: 18px;
+  padding: 0.85rem 1.2rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.nusantara-auth__alert--info {
+  background: rgba(11, 114, 133, 0.08);
+  color: rgba(8, 31, 48, 0.8);
+}
+
+.nusantara-auth__alert--error {
+  background: rgba(220, 38, 38, 0.12);
+  color: #991b1b;
+}
+
+.cmp_form--auth {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.nusantara-auth__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nusantara-auth__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.nusantara-auth__label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(8, 31, 48, 0.65);
+}
+
+.nusantara-auth__required {
+  color: var(--nusantara-accent);
+  margin-left: 0.25rem;
+}
+
+.nusantara-auth__input {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(8, 31, 48, 0.12);
+  background: rgba(249, 250, 251, 0.9);
+  padding: 0.85rem 1.1rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.nusantara-auth__input:focus {
+  border-color: var(--nusantara-accent);
+  box-shadow: 0 0 0 4px rgba(11, 114, 133, 0.15);
+  outline: none;
+  background: #fff;
+}
+
+.nusantara-auth__passwordRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nusantara-auth__link {
+  align-self: flex-end;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--nusantara-accent);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nusantara-auth__link:hover,
+.nusantara-auth__link:focus {
+  opacity: 0.75;
+}
+
+.nusantara-auth__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: rgba(8, 31, 48, 0.8);
+}
+
+.nusantara-auth__checkbox input {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1px solid rgba(8, 31, 48, 0.35);
+}
+
+.nusantara-auth__captcha {
+  margin: 0;
+  border: 1px dashed rgba(8, 31, 48, 0.12);
+  border-radius: 18px;
+  padding: 1rem;
+  background: rgba(249, 250, 251, 0.65);
+}
+
+.nusantara-auth__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.nusantara-auth__actions .nusantara-button {
+  flex: 1 1 180px;
+}
+
+@media (max-width: 960px) {
+  .nusantara-auth {
+    min-height: unset;
+  }
+
+  .nusantara-auth__container {
+    grid-template-columns: 1fr;
+  }
+
+  .nusantara-auth__intro {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .nusantara-auth {
+    padding: 1.5rem;
+  }
+
+  .nusantara-auth__card {
+    padding: 1.8rem;
+  }
+
+  .nusantara-auth__actions {
+    flex-direction: column;
+  }
+
+  .nusantara-auth__actions .nusantara-button {
+    width: 100%;
+  }
+}
