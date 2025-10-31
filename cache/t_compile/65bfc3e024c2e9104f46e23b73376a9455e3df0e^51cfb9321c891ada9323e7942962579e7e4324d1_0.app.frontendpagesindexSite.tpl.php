@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2025-10-31 13:17:00
+/* Smarty version 4.5.5, created on 2025-10-31 14:58:53
   from 'app:frontendpagesindexSite.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6904545c2e38c0_15179089',
+  'unifunc' => 'content_69046c3d25f6d2_45869098',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '51cfb9321c891ada9323e7942962579e7e4324d1' => 
     array (
       0 => 'app:frontendpagesindexSite.tpl',
-      1 => 1761890966,
+      1 => 1761897361,
       2 => 'app',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6904545c2e38c0_15179089 (Smarty_Internal_Template $_smarty_tpl) {
+function content_69046c3d25f6d2_45869098 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -102,9 +102,9 @@ if ((isset($_smarty_tpl->tpl_vars['announcements']->value))) {?>
 </strong>
 				</li>
 				<li>
-					<span class="nusantara-metrics__label"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"announcement.announcements"),$_smarty_tpl ) );?>
+					<span class="nusantara-metrics__label"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.themes.nusantara.metrics.articlesPublished"),$_smarty_tpl ) );?>
 </span>
-					<strong class="nusantara-metrics__value"><?php echo $_smarty_tpl->tpl_vars['announcementTotal']->value;?>
+					<strong class="nusantara-metrics__value"><?php echo (($tmp = $_smarty_tpl->tpl_vars['nusantaraArticlesPublished']->value ?? null)===null||$tmp==='' ? 0 ?? null : $tmp);?>
 </strong>
 				</li>
 				<li>

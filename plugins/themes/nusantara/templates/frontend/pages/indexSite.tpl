@@ -64,8 +64,8 @@
 					<strong class="nusantara-metrics__value">{$journalTotal}</strong>
 				</li>
 				<li>
-					<span class="nusantara-metrics__label">{translate key="announcement.announcements"}</span>
-					<strong class="nusantara-metrics__value">{$announcementTotal}</strong>
+					<span class="nusantara-metrics__label">{translate key="plugins.themes.nusantara.metrics.articlesPublished"}</span>
+					<strong class="nusantara-metrics__value">{$nusantaraArticlesPublished|default:0}</strong>
 				</li>
 				<li>
 					<span class="nusantara-metrics__label">{translate key="plugins.themes.nusantara.metrics.readers"}</span>

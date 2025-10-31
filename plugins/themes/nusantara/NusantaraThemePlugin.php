@@ -9,11 +9,14 @@
 namespace APP\plugins\themes\nusantara;
 
 use APP\core\Application;
-use APP\template\TemplateManager;
+use APP\facades\Repo;
 use APP\journal\Journal;
+use APP\submission\Submission;
+use APP\template\TemplateManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\plugins\ThemePlugin;
+use Throwable;
 
 class NusantaraThemePlugin extends ThemePlugin
 {
@@ -180,6 +183,7 @@ class NusantaraThemePlugin extends ThemePlugin
         }
 
         $journals = $templateMgr->getTemplateVars('journals');
+        $templateMgr->assign('nusantaraArticlesPublished', $this->countPublishedArticles($journals));
         if (!$journals || !is_iterable($journals)) {
             $templateMgr->assign('nusantaraJournalModalData', []);
             return false;
@@ -229,6 +233,42 @@ class NusantaraThemePlugin extends ThemePlugin
         $templateMgr->assign('nusantaraJournalModalData', $modalData);
 
         return false;
+    }
+
+    /**
+     * Hitung total artikel terbit dari daftar jurnal portal.
+     *
+     * @param iterable<Journal>|mixed $journals
+     */
+    protected function countPublishedArticles($journals): int
+    {
+        if (!$journals || !is_iterable($journals)) {
+            return 0;
+        }
+
+        $contextIds = [];
+        foreach ($journals as $journal) {
+            if ($journal instanceof Journal) {
+                $contextIds[] = (int) $journal->getId();
+            }
+        }
+
+        if (!$contextIds) {
+            return 0;
+        }
+
+        $contextIds = array_values(array_unique($contextIds));
+
+        try {
+            $collector = Repo::submission()
+                ->getCollector()
+                ->filterByContextIds($contextIds)
+                ->filterByStatus([Submission::STATUS_PUBLISHED]);
+
+            return (int) $collector->getCount();
+        } catch (Throwable $exception) {
+            return 0;
+        }
     }
 
     /**

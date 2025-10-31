@@ -11,6 +11,9 @@ msgstr "Cari artikel, jurnal, atau penulis"
 msgid "plugins.themes.nusantara.metrics.readers"
 msgstr "Pembaca global"
 
+msgid "plugins.themes.nusantara.metrics.articlesPublished"
+msgstr "Artikel terbit"
+
 msgid "plugins.themes.nusantara.site.journalShowcase"
 msgstr "Jelajahi Jurnal Kami"
 

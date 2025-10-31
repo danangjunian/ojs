@@ -11,6 +11,9 @@ msgstr "Search articles, journals, or authors"
 msgid "plugins.themes.nusantara.metrics.readers"
 msgstr "Global readership"
 
+msgid "plugins.themes.nusantara.metrics.articlesPublished"
+msgstr "Articles Published"
+
 msgid "plugins.themes.nusantara.site.journalShowcase"
 msgstr "Discover Our Journals"
 
